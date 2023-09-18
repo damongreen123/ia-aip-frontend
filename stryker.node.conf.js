@@ -2,11 +2,8 @@ require('dotenv-extended').load({ path: 'api/.env.defaults' });
 module.exports = {
     // fileLogLevel: 'trace',
     // logLevel: 'trace',
-    mutate: ["app/**/*.ts", "!app/test/**/*.ts"],
-    transpilers: [
-        'typescript'
-    ],
-    testRunner: "mocha",
+    disableTypeChecks: "true",
+    mutate: ["app/**/*.ts"],
     reporters: ["clear-text", "progress", "html"],
     tsconfigFile: 'tsconfig.json',
     mochaOptions: {
@@ -16,5 +13,6 @@ module.exports = {
     htmlReporter: {
         baseDir: 'reports/tests/mutation/node/'
     },
-    concurrency: 2
+    concurrency: 2,
+    cleanTempDir: true
 }
