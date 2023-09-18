@@ -37,7 +37,7 @@ const getBrowserConfig = browserGroup => {
 exports.config = {
   name: 'AIP Frontend Tests',
   helpers: {
-    WebDriverIO: {
+    WebDriver: {
       url: TEST_URL,
       browser: 'chrome',
       waitForTimeout: 60000,
