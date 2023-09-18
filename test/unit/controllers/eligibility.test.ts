@@ -49,7 +49,7 @@ describe('Type of appeal Controller', () => {
 
   describe('load first question', () => {
     it('loads first question', async () => {
-
+      sandbox.stub(LaunchDarklyService.prototype, 'getVariation').withArgs(null, 'aip-ooc-feature', false).resolves(false);
       req.session.eligibility = {};
       await eligibilityQuestionGet(req as Request, res as Response, next);
 
@@ -84,6 +84,7 @@ describe('Type of appeal Controller', () => {
     });
 
     it('loads another question', async () => {
+      sandbox.stub(LaunchDarklyService.prototype, 'getVariation').withArgs(null, 'aip-ooc-feature', false).resolves(false);
       req.query = { id: '2' };
       req.session.eligibility = {};
 
@@ -102,6 +103,7 @@ describe('Type of appeal Controller', () => {
     });
 
     it('loads answer', async () => {
+      sandbox.stub(LaunchDarklyService.prototype, 'getVariation').withArgs(null, 'aip-ooc-feature', false).resolves(false);
       req.query = { id: '1' };
       req.session.eligibility = {
         '1': {
@@ -124,6 +126,7 @@ describe('Type of appeal Controller', () => {
     });
 
     it('cannot skip eligibility questions', async () => {
+      sandbox.stub(LaunchDarklyService.prototype, 'getVariation').withArgs(null, 'aip-ooc-feature', false).resolves(false);
       req.query = { id: '3' };
 
       await eligibilityQuestionGet(req as Request, res as Response, next);
@@ -143,6 +146,7 @@ describe('Type of appeal Controller', () => {
 
   describe('handles an answer', () => {
     it('redirects to next question if answer eligible', async () => {
+      sandbox.stub(LaunchDarklyService.prototype, 'getVariation').withArgs(null, 'aip-ooc-feature', false).resolves(false);
       req.body = {
         questionId: '0',
         answer: i18n.eligibility[0].eligibleAnswer
@@ -155,6 +159,7 @@ describe('Type of appeal Controller', () => {
     });
 
     it('redirects to ineligible page if answer ineligible', async () => {
+      sandbox.stub(LaunchDarklyService.prototype, 'getVariation').withArgs(null, 'aip-ooc-feature', false).resolves(false);
       req.body = {
         questionId: '0',
         answer: opposite(i18n.eligibility[0].eligibleAnswer)
@@ -167,6 +172,7 @@ describe('Type of appeal Controller', () => {
     });
 
     it('redirects to eligible page if all answers eligible', async () => {
+      sandbox.stub(LaunchDarklyService.prototype, 'getVariation').withArgs(null, 'aip-ooc-feature', false).resolves(false);
       const finalQuestionId = i18n.eligibility.length - 1;
       req.body = {
         questionId: finalQuestionId + '',
@@ -192,6 +198,7 @@ describe('Type of appeal Controller', () => {
     });
 
     it('reload page if no option selected', async () => {
+      sandbox.stub(LaunchDarklyService.prototype, 'getVariation').withArgs(null, 'aip-ooc-feature', false).resolves(false);
       req.body = {
         questionId: '2'
       };
