@@ -1,5 +1,7 @@
 const browsers = require('./browsers.js');
 const config = require('config');
+const ourBootstrap = {bootstrapAll} =  require('../functional/bootstrap-all.ts').bootstrapAll;
+const ourTeardown = {teardownAll} =  require('../functional/bootstrap-all.ts').teardownAll;
 
 const SAUCE_USERNAME = process.env.SAUCE_USERNAME;
 const SAUCE_ACCESS_KEY = process.env.SAUCE_ACCESS_KEY;
@@ -75,8 +77,8 @@ exports.config = {
     //   browsers: getBrowserConfig('safari')
     // }
   },
-  bootstrapAll: '../functional/bootstrap-all.ts',
-  teardownAll: '../functional/bootstrap-all.ts',
+  bootstrapAll: bootstrapAll,
+  teardownAll: teardownAll,
   gherkin: {
     features: '../e2e-test/features/*.feature',
     steps: [ '../e2e-test/step_definitions/steps.ts' ]
