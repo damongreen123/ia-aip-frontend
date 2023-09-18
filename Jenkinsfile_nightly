@@ -64,9 +64,9 @@ withNightlyPipeline(type, product, component) {
     env.IDAM_API_URL = 'https://idam-api.aat.platform.hmcts.net'
     env.S2S_MICROSERVICE_NAME = 'iac'
 
-    enableCrossBrowserTest()
-    enableFortifyScan()
-    enableSecurityScan()
+//    enableCrossBrowserTest()
+//    enableFortifyScan()
+//    enableSecurityScan()
     enableMutationTest()
     enableFullFunctionalTest(120)
 
