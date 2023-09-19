@@ -10,7 +10,7 @@ module.exports = {
         spec: [ "dist/out-tsc/api/{,!(test)/**/}*.spec.js" ],
         // timeout: 5000
     },
-    commandRunner: { "command": "npm run test:unit" }
+    commandRunner: { "command": "npm run test:unit" },
     htmlReporter: {
         baseDir: 'reports/tests/mutation/node/'
     },
