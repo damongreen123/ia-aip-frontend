@@ -7,7 +7,7 @@ module.exports = {
     reporters: ["clear-text", "progress", "html"],
     tsconfigFile: 'tsconfig.json',
     mochaOptions: {
-        spec: [ "dist/out-tsc/api/{,!(test:unit)/**/}*.spec.js" ],
+        spec: [ "dist/out-tsc/api/{,!(test)/**/}*.spec.js" ],
         // timeout: 5000
     },
     commandRunner: { "command": "npm run test:unit" }
