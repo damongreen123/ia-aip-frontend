@@ -122,6 +122,9 @@ describe('Confirmation Page Controller', () => {
       redirect: sinon.spy()
     } as Partial<Response>;
 
+    sandbox.stub(LaunchDarklyService.prototype, 'getVariation')
+      .withArgs(req as Request, FEATURE_FLAGS.FTPA, false).resolves(true);
+
     next = sandbox.stub() as NextFunction;
   });
 
