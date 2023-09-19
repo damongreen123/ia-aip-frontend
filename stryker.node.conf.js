@@ -2,7 +2,7 @@ require('dotenv-extended').load({ path: 'api/.env.defaults' });
 module.exports = {
     // fileLogLevel: 'trace',
     // logLevel: 'trace',
-    disableTypeChecks: "true",
+    disableTypeChecks: "app/**/*.{js,ts,jsx,tsx,html,vue}",
     mutate: ["app/**/*.ts"],
     reporters: ["clear-text", "progress", "html"],
     tsconfigFile: 'tsconfig.json',
