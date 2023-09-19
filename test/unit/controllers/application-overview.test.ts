@@ -135,6 +135,7 @@ describe('Confirmation Page Controller', () => {
   });
 
   it('getApplicationOverview should render application-overview.njk with options and IDAM name', async () => {
+    sandbox.stub(LaunchDarklyService.prototype, 'getVariation').withArgs(req as Request, 'aip-ftpa-feature', false).resolves(false);
     req.idam = {
       userDetails: {
         uid: 'anId',
@@ -150,25 +151,25 @@ describe('Confirmation Page Controller', () => {
     await getApplicationOverview(updateAppealService as UpdateAppealService)(req as Request, res as Response, next);
 
     const expectedStages = [{
-      active: true,
+      title: 'Your appeal<br/> details',
       ariaLabel: 'Your appeal details stage',
-      completed: false,
-      title: 'Your appeal<br/> details'
+      active: true,
+      completed: false
     }, {
-      active: false,
+      title: 'Your appeal<br/> argument',
       ariaLabel: 'Your appeal argument stage',
-      completed: false,
-      title: 'Your appeal<br/> argument'
-    }, {
       active: false,
+      completed: false
+    }, {
+      title: 'Your hearing<br/> details',
       ariaLabel: 'Your hearing details stage',
-      completed: false,
-      title: 'Your hearing<br/> details'
-    }, {
       active: false,
+      completed: false
+    }, {
+      title: 'Your appeal<br/> decision',
       ariaLabel: 'Your appeal decision stage',
-      completed: false,
-      title: 'Your appeal<br/> decision'
+      active: false,
+      completed: false
     }];
 
     expect(res.render).to.have.been.calledOnce.calledWith('application-overview.njk', {
@@ -184,8 +185,8 @@ describe('Confirmation Page Controller', () => {
       saveAndAskForMoreTime: false,
       provideMoreEvidenceSection: false,
       showAppealRequests: false,
-      showHearingRequests: false,
       showAppealRequestsInAppealEndedStatus: false,
+      showHearingRequests: false,
       showPayLaterLink: false,
       ftpaFeatureEnabled: false,
       hearingDetails: null,
@@ -195,6 +196,7 @@ describe('Confirmation Page Controller', () => {
   });
 
   it('getApplicationOverview should render application-overview.njk with options and IDAM name and no events', async () => {
+    sandbox.stub(LaunchDarklyService.prototype, 'getVariation').withArgs(req as Request, 'aip-ftpa-feature', false).resolves(false);
     req.idam = {
       userDetails: {
         uid: 'anId',
@@ -209,25 +211,25 @@ describe('Confirmation Page Controller', () => {
     await getApplicationOverview(updateAppealService as UpdateAppealService)(req as Request, res as Response, next);
 
     const expectedStages = [{
-      active: true,
+      title: 'Your appeal<br/> details',
       ariaLabel: 'Your appeal details stage',
-      completed: false,
-      title: 'Your appeal<br/> details'
+      active: true,
+      completed: false
     }, {
-      active: false,
+      title: 'Your appeal<br/> argument',
       ariaLabel: 'Your appeal argument stage',
-      completed: false,
-      title: 'Your appeal<br/> argument'
-    }, {
       active: false,
+      completed: false
+    }, {
+      title: 'Your hearing<br/> details',
       ariaLabel: 'Your hearing details stage',
-      completed: false,
-      title: 'Your hearing<br/> details'
-    }, {
       active: false,
+      completed: false
+    }, {
+      title: 'Your appeal<br/> decision',
       ariaLabel: 'Your appeal decision stage',
-      completed: false,
-      title: 'Your appeal<br/> decision'
+      active: false,
+      completed: false
     }];
 
     expect(res.render).to.have.been.calledOnce.calledWith('application-overview.njk', {
@@ -243,8 +245,8 @@ describe('Confirmation Page Controller', () => {
       saveAndAskForMoreTime: false,
       provideMoreEvidenceSection: false,
       showAppealRequests: false,
-      showHearingRequests: false,
       showAppealRequestsInAppealEndedStatus: false,
+      showHearingRequests: false,
       showPayLaterLink: false,
       ftpaFeatureEnabled: false,
       hearingDetails: null,
@@ -254,6 +256,7 @@ describe('Confirmation Page Controller', () => {
   });
 
   it('getApplicationOverview should render application-overview.njk with options and IDAM name', async () => {
+    sandbox.stub(LaunchDarklyService.prototype, 'getVariation').withArgs(req as Request, 'aip-ftpa-feature', false).resolves(false);
     req.idam = {
       userDetails: {
         uid: 'user-id',
@@ -269,25 +272,25 @@ describe('Confirmation Page Controller', () => {
     await getApplicationOverview(updateAppealService as UpdateAppealService)(req as Request, res as Response, next);
 
     const expectedStages = [{
-      active: true,
+      title: 'Your appeal<br/> details',
       ariaLabel: 'Your appeal details stage',
-      completed: false,
-      title: 'Your appeal<br/> details'
+      active: true,
+      completed: false
     }, {
-      active: false,
+      title: 'Your appeal<br/> argument',
       ariaLabel: 'Your appeal argument stage',
-      completed: false,
-      title: 'Your appeal<br/> argument'
-    }, {
       active: false,
+      completed: false
+    }, {
+      title: 'Your hearing<br/> details',
       ariaLabel: 'Your hearing details stage',
-      completed: false,
-      title: 'Your hearing<br/> details'
-    }, {
       active: false,
+      completed: false
+    }, {
+      title: 'Your appeal<br/> decision',
       ariaLabel: 'Your appeal decision stage',
-      completed: false,
-      title: 'Your appeal<br/> decision'
+      active: false,
+      completed: false
     }];
 
     expect(res.render).to.have.been.calledOnce.calledWith('application-overview.njk', {
@@ -303,8 +306,8 @@ describe('Confirmation Page Controller', () => {
       saveAndAskForMoreTime: false,
       provideMoreEvidenceSection: false,
       showAppealRequests: false,
-      showHearingRequests: false,
       showAppealRequestsInAppealEndedStatus: false,
+      showHearingRequests: false,
       showPayLaterLink: false,
       ftpaFeatureEnabled: false,
       hearingDetails: null,
@@ -314,6 +317,7 @@ describe('Confirmation Page Controller', () => {
   });
 
   it('getApplicationOverview should render with appealRefNumber application-overview.njk with options and IDAM name', async () => {
+    sandbox.stub(LaunchDarklyService.prototype, 'getVariation').withArgs(req as Request, 'aip-ftpa-feature', false).resolves(false);
     req.idam = {
       userDetails: {
         uid: 'user-id',
@@ -341,25 +345,25 @@ describe('Confirmation Page Controller', () => {
     };
 
     const expectedStages = [{
-      active: true,
+      title: 'Your appeal<br/> details',
       ariaLabel: 'Your appeal details stage',
-      completed: false,
-      title: 'Your appeal<br/> details'
+      active: true,
+      completed: false
     }, {
-      active: false,
+      title: 'Your appeal<br/> argument',
       ariaLabel: 'Your appeal argument stage',
-      completed: false,
-      title: 'Your appeal<br/> argument'
-    }, {
       active: false,
+      completed: false
+    }, {
+      title: 'Your hearing<br/> details',
       ariaLabel: 'Your hearing details stage',
-      completed: false,
-      title: 'Your hearing<br/> details'
-    }, {
       active: false,
+      completed: false
+    }, {
+      title: 'Your appeal<br/> decision',
       ariaLabel: 'Your appeal decision stage',
-      completed: false,
-      title: 'Your appeal<br/> decision'
+      active: false,
+      completed: false
     }];
 
     expect(res.render).to.have.been.calledOnce.calledWith('application-overview.njk', {
@@ -375,8 +379,8 @@ describe('Confirmation Page Controller', () => {
       saveAndAskForMoreTime: false,
       provideMoreEvidenceSection: false,
       showAppealRequests: false,
-      showHearingRequests: false,
       showAppealRequestsInAppealEndedStatus: false,
+      showHearingRequests: false,
       showPayLaterLink: false,
       ftpaFeatureEnabled: false,
       hearingDetails: null,
@@ -386,6 +390,7 @@ describe('Confirmation Page Controller', () => {
   });
 
   it('getApplicationOverview should render with appealRefNumber application-overview.njk with options and entered name @justthis', async () => {
+    sandbox.stub(LaunchDarklyService.prototype, 'getVariation').withArgs(req as Request, 'aip-ftpa-feature', false).resolves(false);
     req.idam = {
       userDetails: {
         uid: 'user-id',
@@ -415,25 +420,25 @@ describe('Confirmation Page Controller', () => {
     };
 
     const expectedStages = [{
-      active: true,
+      title: 'Your appeal<br/> details',
       ariaLabel: 'Your appeal details stage',
-      completed: false,
-      title: 'Your appeal<br/> details'
+      active: true,
+      completed: false
     }, {
-      active: false,
+      title: 'Your appeal<br/> argument',
       ariaLabel: 'Your appeal argument stage',
-      completed: false,
-      title: 'Your appeal<br/> argument'
-    }, {
       active: false,
+      completed: false
+    }, {
+      title: 'Your hearing<br/> details',
       ariaLabel: 'Your hearing details stage',
-      completed: false,
-      title: 'Your hearing<br/> details'
-    }, {
       active: false,
+      completed: false
+    }, {
+      title: 'Your appeal<br/> decision',
       ariaLabel: 'Your appeal decision stage',
-      completed: false,
-      title: 'Your appeal<br/> decision'
+      active: false,
+      completed: false
     }];
 
     expect(res.render).to.have.been.calledOnce.calledWith('application-overview.njk', {
@@ -449,8 +454,8 @@ describe('Confirmation Page Controller', () => {
       saveAndAskForMoreTime: false,
       provideMoreEvidenceSection: false,
       showAppealRequests: false,
-      showHearingRequests: false,
       showAppealRequestsInAppealEndedStatus: false,
+      showHearingRequests: false,
       showPayLaterLink: false,
       ftpaFeatureEnabled: false,
       hearingDetails: null,
