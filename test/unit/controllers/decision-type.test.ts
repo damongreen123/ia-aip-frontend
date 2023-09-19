@@ -166,14 +166,15 @@ describe('Type of appeal Controller', () => {
       expect(res.redirect).to.have.been.calledOnce.calledWith(paths.appealStarted.taskList);
     });
 
-    it('should redirect to the task-list page when payments feature flag ON but PCQ feature flag ON and appealType is not protection', async () => {
+    it('should redirect to the PCQ page when payments feature flag ON but PCQ feature flag ON and appealType is not protection', async () => {
       sandbox.stub(LaunchDarklyService.prototype, 'getVariation')
           .withArgs(req as Request, FEATURE_FLAGS.CARD_PAYMENTS, false).resolves(true)
           .withArgs(req as Request, FEATURE_FLAGS.PCQ, false).resolves(true);
       req.body['answer'] = 'decisionWithHearing';
       req.session.appeal.application.appealType = 'revocationOfProtection';
       await postDecisionType(updateAppealService as UpdateAppealService)(req as Request, res as Response, next);
-      expect(res.redirect).to.have.been.calledOnce.calledWith(paths.appealStarted.taskList);
+
+      expect(res.redirect).to.have.been.calledOnce.calledWith(sinon.match('pcq'));
     });
 
     it('should redirect to the task-list page when payments feature flag ON, PCQ feature flag ON, appealType is protection, but there is pcqId', async () => {
@@ -187,7 +188,7 @@ describe('Type of appeal Controller', () => {
       expect(res.redirect).to.have.been.calledOnce.calledWith(paths.appealStarted.taskList);
     });
 
-    it('should redirect to the task-list page when payments feature flag ON but PCQ feature flag ON and appealType is not protection, PCQ is Up', async () => {
+    it('should redirect to the PCQ page when payments feature flag ON but PCQ feature flag ON and appealType is not protection, PCQ is Up', async () => {
       sandbox.stub(LaunchDarklyService.prototype, 'getVariation')
           .withArgs(req as Request, FEATURE_FLAGS.CARD_PAYMENTS, false).resolves(true)
           .withArgs(req as Request, FEATURE_FLAGS.PCQ, false).resolves(true);
@@ -198,7 +199,7 @@ describe('Type of appeal Controller', () => {
       req.session.appeal.application.appealType = 'revocationOfProtection';
       await postDecisionType(updateAppealService as UpdateAppealService)(req as Request, res as Response, next);
 
-      expect(res.redirect).to.have.been.calledOnce;
+      expect(res.redirect).to.have.been.calledOnce.calledWith(sinon.match('pcq'));
     });
 
     it('getDecisionType should catch exception and call next with the error', async () => {

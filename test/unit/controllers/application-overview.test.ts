@@ -16,6 +16,7 @@ import { paths } from '../../../app/paths';
 import { AuthenticationService } from '../../../app/service/authentication-service';
 import { CcdService } from '../../../app/service/ccd-service';
 import UpdateAppealService from '../../../app/service/update-appeal-service';
+import LaunchDarklyService from '../../../app/service/launchDarkly-service';
 import Logger from '../../../app/utils/logger';
 import { expect, sinon } from '../../utils/testUtils';
 import { expectedMultipleEventsData } from '../mockData/events/expectations';
@@ -34,14 +35,14 @@ describe('Confirmation Page Controller', () => {
 
   const logger: Logger = new Logger();
   const expectedNextStep = {
-    cta: { url: '/about-appeal' },
-    deadline: null,
     descriptionParagraphs: [
       'You need to answer a few questions about yourself and your appeal to get started.',
       'You will need to have your Home Office decision letter with you to answer some questions.'
     ],
     info: null,
-    allowedAskForMoreTime: false
+    cta: { url: '/about-appeal' },
+    allowedAskForMoreTime: false,
+    deadline: null
   };
 
   const expectedHistory = {
@@ -135,7 +136,6 @@ describe('Confirmation Page Controller', () => {
   });
 
   it('getApplicationOverview should render application-overview.njk with options and IDAM name', async () => {
-    sandbox.stub(LaunchDarklyService.prototype, 'getVariation').withArgs(req as Request, 'aip-ftpa-feature', false).resolves(false);
     req.idam = {
       userDetails: {
         uid: 'anId',
@@ -196,7 +196,6 @@ describe('Confirmation Page Controller', () => {
   });
 
   it('getApplicationOverview should render application-overview.njk with options and IDAM name and no events', async () => {
-    sandbox.stub(LaunchDarklyService.prototype, 'getVariation').withArgs(req as Request, 'aip-ftpa-feature', false).resolves(false);
     req.idam = {
       userDetails: {
         uid: 'anId',
@@ -256,7 +255,6 @@ describe('Confirmation Page Controller', () => {
   });
 
   it('getApplicationOverview should render application-overview.njk with options and IDAM name', async () => {
-    sandbox.stub(LaunchDarklyService.prototype, 'getVariation').withArgs(req as Request, 'aip-ftpa-feature', false).resolves(false);
     req.idam = {
       userDetails: {
         uid: 'user-id',
@@ -317,7 +315,6 @@ describe('Confirmation Page Controller', () => {
   });
 
   it('getApplicationOverview should render with appealRefNumber application-overview.njk with options and IDAM name', async () => {
-    sandbox.stub(LaunchDarklyService.prototype, 'getVariation').withArgs(req as Request, 'aip-ftpa-feature', false).resolves(false);
     req.idam = {
       userDetails: {
         uid: 'user-id',
@@ -334,14 +331,14 @@ describe('Confirmation Page Controller', () => {
     await getApplicationOverview(updateAppealService as UpdateAppealService)(req as Request, res as Response, next);
 
     const expectedNextStep = {
-      allowedAskForMoreTime: false,
-      cta: { url: '/about-appeal' },
-      deadline: null,
       descriptionParagraphs: [
         'You need to finish telling us about your appeal.',
         'You will need to have your Home Office decision letter with you to answer some questions.'
       ],
-      info: null
+      info: null,
+      cta: { url: '/about-appeal' },
+      allowedAskForMoreTime: false,
+      deadline: null
     };
 
     const expectedStages = [{
@@ -390,7 +387,6 @@ describe('Confirmation Page Controller', () => {
   });
 
   it('getApplicationOverview should render with appealRefNumber application-overview.njk with options and entered name @justthis', async () => {
-    sandbox.stub(LaunchDarklyService.prototype, 'getVariation').withArgs(req as Request, 'aip-ftpa-feature', false).resolves(false);
     req.idam = {
       userDetails: {
         uid: 'user-id',
@@ -409,14 +405,14 @@ describe('Confirmation Page Controller', () => {
     await getApplicationOverview(updateAppealService as UpdateAppealService)(req as Request, res as Response, next);
 
     const expectedNextStep = {
-      allowedAskForMoreTime: false,
-      cta: { url: '/about-appeal' },
-      deadline: null,
       descriptionParagraphs: [
         'You need to finish telling us about your appeal.',
         'You will need to have your Home Office decision letter with you to answer some questions.'
       ],
-      info: null
+      info: null,
+      cta: { url: '/about-appeal' },
+      allowedAskForMoreTime: false,
+      deadline: null
     };
 
     const expectedStages = [{
