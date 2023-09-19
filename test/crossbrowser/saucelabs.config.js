@@ -48,7 +48,7 @@ exports.config = {
       user: SAUCE_USERNAME,
       key: SAUCE_ACCESS_KEY,
       desiredCapabilities: {},
-},
+    },
     SauceLabsReportingHelper: {
       require: './helpers/SauceLabsReportingHelper.js'
     }
@@ -88,7 +88,16 @@ exports.config = {
       enabled: true,
       fullPageScreenshots: true,
       deleteSuccessful: false
-    }
+    },
+    selenoid: {
+      enabled: true,
+      deletePassed: true,
+      autoCreate: true,
+      autoStart: true,
+      sessionTimeout: '30m',
+      enableVideo: true,
+      enableLog: true,
+    },
   },
   require: [ 'ts-node/register/transpile-only' ]
 };

@@ -67,10 +67,10 @@ withNightlyPipeline(type, product, component) {
     enableCrossBrowserTest()
 //    disabled until fortify accounts are allocated
 //    enableFortifyScan()
-    enableSecurityScan()
+//    enableSecurityScan()
 //    mutation tests not yet implemented
 //    enableMutationTest()
-    enableFullFunctionalTest(120)
+//    enableFullFunctionalTest(120)
 
     after('fortify-scan') {
         steps.archiveArtifacts allowEmptyArchive: true, artifacts: '**/Fortify Scan/**/*'

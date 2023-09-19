@@ -2112,15 +2112,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/fs-extra@npm:^9.0.1":
-  version: 9.0.13
-  resolution: "@types/fs-extra@npm:9.0.13"
-  dependencies:
-    "@types/node": "*"
-  checksum: add79e212acd5ac76b97b9045834e03a7996aef60a814185e0459088fd290519a3c1620865d588fa36c4498bf614210d2a703af5cf80aa1dbc125db78f6edac3
-  languageName: node
-  linkType: hard
-
 "@types/http-cache-semantics@npm:*":
   version: 4.0.0
   resolution: "@types/http-cache-semantics@npm:4.0.0"
@@ -2307,15 +2298,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/selenium-standalone@npm:^6.15.2":
-  version: 6.15.2
-  resolution: "@types/selenium-standalone@npm:6.15.2"
-  dependencies:
-    "@types/node": "*"
-  checksum: c7008aabab88a44a16e66362ab3c55329aaf7d51b63068517019123be90934521dc16438699023a0757535cde3f35628e80d70ceb22d6b61f4d107aed141c650
-  languageName: node
-  linkType: hard
-
 "@types/serve-static@npm:*":
   version: 1.13.4
   resolution: "@types/serve-static@npm:1.13.4"
@@ -2485,22 +2467,6 @@ __metadata:
   dependencies:
     "@wdio/utils": 6.11.0
   checksum: 6afa1fe8766cd431189f99b025bcc0d107d9dec9568ea0f51e43dee08892b33ab8afc0623cc1573429f300aa5e4421eca89d4fc0a971ffb7d33bbecbd341e967
-  languageName: node
-  linkType: hard
-
-"@wdio/selenium-standalone-service@npm:^6.12.1":
-  version: 6.12.1
-  resolution: "@wdio/selenium-standalone-service@npm:6.12.1"
-  dependencies:
-    "@types/fs-extra": ^9.0.1
-    "@types/selenium-standalone": ^6.15.2
-    "@wdio/config": 6.12.1
-    "@wdio/logger": 6.10.10
-    fs-extra: ^9.0.1
-    selenium-standalone: ^6.22.1
-  peerDependencies:
-    "@wdio/cli": ^6.0.1
-  checksum: 4857f4951bacb37f287f1b145a9ee32710f3ef679a87fe583a38d350216305f36f8f579df4999c23683ab9e37e906a41cc1ef9bea431653ee9fc3e621decfecc
   languageName: node
   linkType: hard
 
@@ -4534,6 +4500,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"codeceptjs-selenoid@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "codeceptjs-selenoid@npm:1.0.4"
+  dependencies:
+    chalk: ^4.1.0
+    debug: ^4.1.1
+    deepmerge: ^4.0.0
+    figlet: ^1.2.4
+    node-emoji: ^1.10.0
+  checksum: f4e5829d7cc77b74250d21b7145b7998fae1f0d09408ac02b5df73a80cb9af76c8474b7800242c14bc9218bec5bd8db9e288843ce1facd4863182c9855a8b5d2
+  languageName: node
+  linkType: hard
+
 "codeceptjs@npm:3.4.1":
   version: 3.4.1
   resolution: "codeceptjs@npm:3.4.1"
@@ -5592,7 +5571,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:4.3.4, debug@npm:^4.3.1, debug@npm:^4.3.3, debug@npm:^4.3.4, debug@npm:~4.3.1, debug@npm:~4.3.2":
+"debug@npm:4.3.4, debug@npm:^4.3.3, debug@npm:^4.3.4, debug@npm:~4.3.1, debug@npm:~4.3.2":
   version: 4.3.4
   resolution: "debug@npm:4.3.4"
   dependencies:
@@ -6881,6 +6860,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"figlet@npm:^1.2.4":
+  version: 1.6.0
+  resolution: "figlet@npm:1.6.0"
+  bin:
+    figlet: bin/index.js
+  checksum: 7455df4198ab4e260310a2f0bbd8970b8a6c757de16b40f451944eac2a3299f6935b1f40d1cf54d3235c147c9f65ae465533c054ecb7656c076b5cc6037d9274
+  languageName: node
+  linkType: hard
+
 "figures@npm:^2.0.0":
   version: 2.0.0
   resolution: "figures@npm:2.0.0"
@@ -7645,25 +7633,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"got@npm:^11.8.2":
-  version: 11.8.6
-  resolution: "got@npm:11.8.6"
-  dependencies:
-    "@sindresorhus/is": ^4.0.0
-    "@szmarczak/http-timer": ^4.0.5
-    "@types/cacheable-request": ^6.0.1
-    "@types/responselike": ^1.0.0
-    cacheable-lookup: ^5.0.3
-    cacheable-request: ^7.0.2
-    decompress-response: ^6.0.0
-    http2-wrapper: ^1.0.0-beta.5.2
-    lowercase-keys: ^2.0.0
-    p-cancelable: ^2.0.0
-    responselike: ^2.0.0
-  checksum: bbc783578a8d5030c8164ef7f57ce41b5ad7db2ed13371e1944bef157eeca5a7475530e07c0aaa71610d7085474d0d96222c9f4268d41db333a17e39b463f45d
-  languageName: node
-  linkType: hard
-
 "govuk-frontend@npm:^4.7.0":
   version: 4.7.0
   resolution: "govuk-frontend@npm:4.7.0"
@@ -8250,13 +8219,13 @@ __metadata:
     "@types/sinon": ^7.0.13
     "@types/sinon-chai": ^3.2.3
     "@types/webpack-dev-middleware": ^3.7.0
-    "@wdio/selenium-standalone-service": ^6.12.1
     applicationinsights: ^1.8.10
     babel-loader: ^8.2.2
     chai: ^4.3.4
     chai-as-promised: ^7.1.1
     chai-string: ^1.5.0
     codeceptjs: 3.4.1
+    codeceptjs-selenoid: ^1.0.4
     concurrently: ^5.3.0
     config: ^3.3.6
     connect-redis: ^4.0.4
@@ -9833,13 +9802,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.mapvalues@npm:^4.6.0":
-  version: 4.6.0
-  resolution: "lodash.mapvalues@npm:4.6.0"
-  checksum: 0ff1b252fda318fc36e47c296984925e98fbb0fc5a2ecc4ef458f3c739a9476d47e40c95ac653e8314d132aa59c746d4276527b99d6e271940555c6e12d2babd
-  languageName: node
-  linkType: hard
-
 "lodash.memoize@npm:^4.1.2":
   version: 4.1.2
   resolution: "lodash.memoize@npm:4.1.2"
@@ -10952,6 +10914,15 @@ __metadata:
   dependencies:
     clone: 2.x
   checksum: b0bdd81a6fee4754fb984a05246b510bb35dc54721116d465899bf4229ee3287fdafb47da526900ee9924fb402ed5c7d8050049d37d8bf2d26dbafc23a2c3205
+  languageName: node
+  linkType: hard
+
+"node-emoji@npm:^1.10.0":
+  version: 1.11.0
+  resolution: "node-emoji@npm:1.11.0"
+  dependencies:
+    lodash: ^4.17.21
+  checksum: e8c856c04a1645062112a72e59a98b203505ed5111ff84a3a5f40611afa229b578c7d50f1e6a7f17aa62baeea4a640d2e2f61f63afc05423aa267af10977fb2b
   languageName: node
   linkType: hard
 
@@ -12426,7 +12397,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"progress@npm:2.0.3, progress@npm:^2.0.0, progress@npm:^2.0.1, progress@npm:~2.0.0":
+"progress@npm:^2.0.0, progress@npm:^2.0.1, progress@npm:~2.0.0":
   version: 2.0.3
   resolution: "progress@npm:2.0.3"
   checksum: f67403fe7b34912148d9252cb7481266a354bd99ce82c835f79070643bb3c6583d10dbcfda4d41e04bbc1d8437e9af0fb1e1f2135727878f5308682a579429b7
@@ -13572,29 +13543,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"selenium-standalone@npm:^6.22.1":
-  version: 6.24.0
-  resolution: "selenium-standalone@npm:6.24.0"
-  dependencies:
-    commander: ^2.20.3
-    cross-spawn: ^7.0.3
-    debug: ^4.3.1
-    got: ^11.8.2
-    lodash.mapvalues: ^4.6.0
-    lodash.merge: ^4.6.2
-    minimist: ^1.2.5
-    mkdirp: ^1.0.4
-    progress: 2.0.3
-    tar-stream: 2.2.0
-    which: ^2.0.2
-    yauzl: ^2.10.0
-  bin:
-    selenium-standalone: bin/selenium-standalone
-    start-selenium: bin/start-selenium
-  checksum: a71165a5b57f616bd572c9e6932408ae538e65d0e026d154a7017f766585c254d7f363b83c974000c9bf1feb6cfc9b26933f7e9086ab0c045a60cff48c89c3bf
-  languageName: node
-  linkType: hard
-
 "semver-compare@npm:^1.0.0":
   version: 1.0.0
   resolution: "semver-compare@npm:1.0.0"
@@ -14705,7 +14653,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tar-stream@npm:2.2.0, tar-stream@npm:^2.0.0, tar-stream@npm:^2.1.4":
+"tar-stream@npm:^2.0.0, tar-stream@npm:^2.1.4":
   version: 2.2.0
   resolution: "tar-stream@npm:2.2.0"
   dependencies:
