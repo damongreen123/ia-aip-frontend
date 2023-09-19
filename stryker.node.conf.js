@@ -14,6 +14,6 @@ module.exports = {
     htmlReporter: {
         baseDir: 'reports/tests/mutation/node/'
     },
-    concurrency: 2,
+    concurrency: 20,
     cleanTempDir: true
 }
