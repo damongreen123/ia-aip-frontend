@@ -188,7 +188,7 @@ describe('Confirmation Page Controller', () => {
       showAppealRequestsInAppealEndedStatus: false,
       showHearingRequests: false,
       showPayLaterLink: false,
-      ftpaFeatureEnabled: false,
+      ftpaFeatureEnabled: true,
       hearingDetails: null,
       showChangeRepresentation: false,
       showFtpaApplicationLink: false
@@ -247,7 +247,7 @@ describe('Confirmation Page Controller', () => {
       showAppealRequestsInAppealEndedStatus: false,
       showHearingRequests: false,
       showPayLaterLink: false,
-      ftpaFeatureEnabled: false,
+      ftpaFeatureEnabled: true,
       hearingDetails: null,
       showChangeRepresentation: false,
       showFtpaApplicationLink: false
@@ -307,7 +307,7 @@ describe('Confirmation Page Controller', () => {
       showAppealRequestsInAppealEndedStatus: false,
       showHearingRequests: false,
       showPayLaterLink: false,
-      ftpaFeatureEnabled: false,
+      ftpaFeatureEnabled: true,
       hearingDetails: null,
       showChangeRepresentation: false,
       showFtpaApplicationLink: false
@@ -379,7 +379,7 @@ describe('Confirmation Page Controller', () => {
       showAppealRequestsInAppealEndedStatus: false,
       showHearingRequests: false,
       showPayLaterLink: false,
-      ftpaFeatureEnabled: false,
+      ftpaFeatureEnabled: true,
       hearingDetails: null,
       showChangeRepresentation: false,
       showFtpaApplicationLink: false
@@ -453,7 +453,7 @@ describe('Confirmation Page Controller', () => {
       showAppealRequestsInAppealEndedStatus: false,
       showHearingRequests: false,
       showPayLaterLink: false,
-      ftpaFeatureEnabled: false,
+      ftpaFeatureEnabled: true,
       hearingDetails: null,
       showChangeRepresentation: false,
       showFtpaApplicationLink: false
