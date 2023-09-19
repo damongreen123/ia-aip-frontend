@@ -251,7 +251,8 @@ describe('Type of appeal Controller', () => {
 
   describe('getIneligible', () => {
     it('should render the view', async () => {
-      req.query = { id: '1' };
+      sandbox.stub(LaunchDarklyService.prototype, 'getVariation').withArgs(req as Request, 'aip-ooc-feature', false).resolves(false);
+      req.query = { id: '0' };
       const questionId: string = req.query.id as string;
       await getIneligible(req as Request, res as Response, next);
       expect(res.render).to.have.been.calledWith('eligibility/ineligible-page.njk',
@@ -259,7 +260,22 @@ describe('Type of appeal Controller', () => {
           title: i18n.ineligible[questionId].title,
           description: i18n.ineligible[questionId].description,
           optionsList: i18n.ineligible[questionId].optionsList,
-          previousPage: `${paths.common.questions}?id=1`
+          previousPage: `${paths.common.questions}?id=0`
+        }
+      );
+    });
+
+    it('should render the view OOC', async () => {
+      sandbox.stub(LaunchDarklyService.prototype, 'getVariation').withArgs(req as Request, 'aip-ooc-feature', false).resolves(true);
+      req.query = { id: '0' };
+      const questionId: string = req.query.id as string;
+      await getIneligible(req as Request, res as Response, next);
+      expect(res.render).to.have.been.calledWith('eligibility/ineligible-page.njk',
+        {
+          title: i18n.ineligible[questionId].title,
+          description: i18n.ineligible[questionId].description,
+          optionsList: i18n.ineligible[questionId].optionsList,
+          previousPage: `${paths.common.questions}?id=0`
         }
       );
     });
