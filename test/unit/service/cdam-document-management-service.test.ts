@@ -53,7 +53,7 @@ describe('cdam-document-management-service', () => {
       const documentManagementService = new CdamDocumentManagementService(authenticationService);
       await documentManagementService.deleteFile(req as Request, 'fileId');
 
-      expect(deleteStub).to.have.been.calledWith(sinon.match.any, 'CASE_DOCUMENT_AM_URL/cases/documents/ID');
+      expect(deleteStub).to.have.been.calledWith(sinon.match.any, '****/cases/documents/ID');
       expect(req.session.appeal.documentMap.length).to.be.eq(0);
     });
 
@@ -66,7 +66,7 @@ describe('cdam-document-management-service', () => {
       const documentManagementService = new CdamDocumentManagementService(authenticationService);
       await documentManagementService.fetchFile(req as Request, 'http://store/documents/ID');
 
-      expect(fetchStub).to.have.been.calledWith(sinon.match.any, 'CASE_DOCUMENT_AM_URL/cases/documents/ID/binary');
+      expect(fetchStub).to.have.been.calledWith(sinon.match.any, '****/cases/documents/ID/binary');
     });
 
   });
