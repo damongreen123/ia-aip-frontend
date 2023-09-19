@@ -57,6 +57,7 @@ async function createUser() {
     } else {
       response = await rp.post(options);
     }
+    console.info(aipCurrentUser)
     return aipCurrentUser;
   } catch (error) {
     console.log(`Error createUser ${error.message}`);
