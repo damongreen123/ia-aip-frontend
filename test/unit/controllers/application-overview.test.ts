@@ -11,6 +11,7 @@ import {
   showFtpaApplicationLink,
   showHearingRequestSection
 } from '../../../app/controllers/application-overview';
+import { FEATURE_FLAGS } from '../../../app/data/constants';
 import { States } from '../../../app/data/states';
 import { paths } from '../../../app/paths';
 import { AuthenticationService } from '../../../app/service/authentication-service';

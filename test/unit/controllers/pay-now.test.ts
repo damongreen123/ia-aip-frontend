@@ -227,7 +227,7 @@ describe('Pay now Controller @payNow', () => {
     req.session.appeal.application.appealType = 'protection';
     sandbox.stub(PcqService.prototype, 'checkPcqHealth').resolves(false);
     await postPayNow(updateAppealService as UpdateAppealService)(req as Request, res as Response, next);
-    expect(res.redirect).to.have.been.calledOnce.calledWith(sinon.match('pcq'));
+    expect(res.redirect).to.have.been.calledOnce.calledWith(paths.appealStarted.taskList);
   });
 
   it('should redirect to the task-list page when payments feature flag ON, PCQ feature flag ON, appealType is protection, but there is pcqId', async () => {
