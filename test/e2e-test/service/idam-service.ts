@@ -25,8 +25,6 @@ async function createUser() {
   aipCurrentUser.password = 'Apassword123';
   aipCurrentUser.forename = 'ATestForename';
   aipCurrentUser.surname = 'ATestSurname';
-  console.info(aipCurrentUser);
-  console.info('step 1');
   const options = {
     url: `${idamUrl}/testing-support/accounts`,
     json: true,
@@ -49,21 +47,20 @@ async function createUser() {
     timeout: 10000,
     resolveWithFullResponse: true
   };
-  console.info('step 2');
   try {
-    console.info('step 3');
     let response = null;
-    console.info('step 4');
     if (httpProxyEnabled) {
-      console.info('step 5v1');
+      console.info('step 3');
       const proxy = `http://${proxyUrl}:${proxyPort}`;
+      console.info(proxy);
+      console.info('step 4');
       const proxiedRequest = rp.defaults({ 'proxy': proxy });
+      console.info(proxiedRequest);
+      console.info('step 5');
       response = await proxiedRequest.post(options);
-      console.info('step 6v1');
+      console.info('step 6');
     } else {
-      console.info('step 5v2');
       response = await rp.post(options);
-      console.info('step 6v2');
     }
     console.info('step 7');
     console.info(aipCurrentUser);
