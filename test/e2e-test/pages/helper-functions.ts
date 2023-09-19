@@ -6,6 +6,7 @@ async function signInHelper() {
   const environment: string = process.env.NODE_ENV;
   if (environment !== ('test' || 'development')) {
     let userDetails = await createUser();
+    console.info(userDetails)
     I.fillField('#username', userDetails.email);
     I.fillField('#password', userDetails.password);
     currentUserDetails = userDetails;
