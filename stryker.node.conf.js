@@ -3,13 +3,14 @@ module.exports = {
     // fileLogLevel: 'trace',
     // logLevel: 'trace',
     disableTypeChecks: "app/**/*.{js,ts,jsx,tsx,html,vue}",
-    mutate: ["**/*.ts"],
+    mutate: ["app/**/*.ts"],
     reporters: ["clear-text", "progress", "html"],
     tsconfigFile: 'tsconfig.json',
     mochaOptions: {
-        spec: [ "dist/out-tsc/api/{,!(test)/**/}*.spec.js" ],
+        spec: [ "dist/out-tsc/api/{,!(test:unit)/**/}*.spec.js" ],
         // timeout: 5000
     },
+    commandRunner: { "command": "npm run test:unit" }
     htmlReporter: {
         baseDir: 'reports/tests/mutation/node/'
     },
