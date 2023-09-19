@@ -3,7 +3,7 @@ module.exports = {
     // fileLogLevel: 'trace',
     // logLevel: 'trace',
     disableTypeChecks: "app/**/*.{js,ts,jsx,tsx,html,vue}",
-    mutate: ["app/**/*.ts"],
+    mutate: ["**/*.ts"],
     reporters: ["clear-text", "progress", "html"],
     tsconfigFile: 'tsconfig.json',
     mochaOptions: {
