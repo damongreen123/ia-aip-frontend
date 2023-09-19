@@ -11,15 +11,15 @@ import {
   showFtpaApplicationLink,
   showHearingRequestSection
 } from '../../../app/controllers/application-overview';
+import { States } from '../../../app/data/states';
+import { paths } from '../../../app/paths';
 import { AuthenticationService } from '../../../app/service/authentication-service';
 import { CcdService } from '../../../app/service/ccd-service';
+import LaunchDarklyService from '../../../app/service/launchDarkly-service';
+import UpdateAppealService from '../../../app/service/update-appeal-service';
+import Logger from '../../../app/utils/logger';
 import { expect, sinon } from '../../utils/testUtils';
 import { expectedMultipleEventsData } from '../mockData/events/expectations';
-import { paths } from '../../../app/paths';
-import { States } from '../../../app/data/states';
-import LaunchDarklyService from '../../../app/service/launchDarkly-service';
-import Logger from '../../../app/utils/logger';
-import UpdateAppealService from '../../../app/service/update-appeal-service';
 
 const express = require('express');
 

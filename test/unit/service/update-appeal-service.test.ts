@@ -1,10 +1,10 @@
 
 import { Request } from 'express';
+import { FEATURE_FLAGS } from '../../../app/data/constants';
+import { Events } from '../../../app/data/events';
 import { AuthenticationService } from '../../../app/service/authentication-service';
 import { CcdService } from '../../../app/service/ccd-service';
 import { DocumentManagementService } from '../../../app/service/document-management-service';
-import { Events } from '../../../app/data/events';
-import { FEATURE_FLAGS } from '../../../app/data/constants';
 import IdamService from '../../../app/service/idam-service';
 import LaunchDarklyService from '../../../app/service/launchDarkly-service';
 import S2SService from '../../../app/service/s2s-service';
