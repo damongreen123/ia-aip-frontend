@@ -172,6 +172,7 @@ describe('Type of appeal Controller', () => {
           .withArgs(req as Request, FEATURE_FLAGS.PCQ, false).resolves(true);
       req.body['answer'] = 'decisionWithHearing';
       req.session.appeal.application.appealType = 'revocationOfProtection';
+      sandbox.stub(PcqService.prototype, 'checkPcqHealth').resolves(false);
       await postDecisionType(updateAppealService as UpdateAppealService)(req as Request, res as Response, next);
 
       expect(res.redirect).to.have.been.calledOnce.calledWith(paths.appealStarted.taskList);
