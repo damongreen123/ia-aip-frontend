@@ -83,7 +83,7 @@ exports.config = {
       deleteSuccessful: false
     },
     selenoid: {
-      enabled: true,
+      enabled: false,
       deletePassed: true,
       autoCreate: true,
       autoStart: true,
