@@ -34,7 +34,7 @@ exports.config = {
   helpers: {
     SauceLabsReportingHelper: {
       require: './helpers/SauceLabsReportingHelper.js'
-    }
+    },
     customHelper: {
       require: './test/e2e-test/helpers/navigationHelper.ts', // Import the custom helper file
     },
