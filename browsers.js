@@ -17,13 +17,13 @@ const browsers = {
   ],
   chrome: [
     {
-      browserName: 'chrome',
+      browserName: 'WinChrome',
       name: 'WIN_CHROME_LATEST',
       platform: 'Windows 10',
       version: 'latest'
     },
     {
-      browserName: 'chrome',
+      browserName: 'MacChrome',
       name: 'MAC_CHROME_LATEST',
       platform: 'macOS 10.13',
       version: 'latest'
@@ -32,13 +32,13 @@ const browsers = {
   ,
   firefox: [
     {
-      browserName: 'firefox',
+      browserName: 'WinFirefox',
       name: 'WIN_FIREFOX_LATEST',
       platform: 'Windows 10',
       version: 'latest'
     },
     {
-      browserName: 'firefox',
+      browserName: 'MacFirefox',
       name: 'MAC_FIREFOX_LATEST',
       platform: 'macOS 10.13',
       version: 'latest'

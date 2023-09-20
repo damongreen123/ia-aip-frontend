@@ -32,6 +32,9 @@ exports.config = {
      process.exit();
   },
   helpers: {
+    customHelper: {
+      require: './test/e2e-test/helpers/signInHelper.ts', // Import the custom helper file
+    },
     Puppeteer: {
       url: config.get('testUrl'),
       show: config.get('showTests'),

@@ -41,16 +41,16 @@ module.exports = {
 
     Given('I am authenticated as a valid appellant', async () => {
       I.amOnPage(testUrl + paths.common.login);
-      let success = false;
-      let i = 0;
-      let userDetails = await signInHelper();
+      await signInHelper();
+      await I.wait(10);
       for (let i = 0; i < 3; i++) {
-        let success = await I.waitForText('Do this next', 30) ? true : false;
-        if (success !== true) {
+        let success = await I.checkIfLogInIsSuccessful();
+        if (success) { await I.see('Do this next') } else {
           await I.amOnPage(testUrl + paths.common.login);
           await I.fillField('#username', currentUserDetails.email);
           await I.fillField('#password', currentUserDetails.password);
           await I.click('Sign in');
+          await I.wait(10);
         }
       }
       await I.seeInTitle(`Your appeal overview - ${i18n.serviceName} - ${i18n.provider}`);
