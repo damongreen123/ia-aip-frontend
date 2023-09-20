@@ -45,7 +45,8 @@ module.exports = {
       await I.wait(10);
       for (let i = 0; i < 3; i++) {
         let success = await I.checkIfLogInIsSuccessful();
-        if (success) { await I.see('Do this next') } else {
+        if (success) { await I.see('Do this next'); } else {
+          await I.amOnPage(testUrl + 'auth/logout');
           await I.amOnPage(testUrl + paths.common.login);
           await I.fillField('#username', currentUserDetails.email);
           await I.fillField('#password', currentUserDetails.password);

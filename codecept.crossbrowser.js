@@ -33,7 +33,7 @@ exports.config = {
   },
   helpers: {
     customHelper: {
-      require: './test/e2e-test/helpers/signInHelper.ts', // Import the custom helper file
+      require: './test/e2e-test/helpers/navigationHelper.ts', // Import the custom helper file
     },
     Puppeteer: {
       url: config.get('testUrl'),

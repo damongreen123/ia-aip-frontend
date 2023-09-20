@@ -50,21 +50,12 @@ async function createUser() {
   try {
     let response = null;
     if (httpProxyEnabled) {
-      console.info('step 3');
       const proxy = `http://${proxyUrl}:${proxyPort}`;
-      console.info(proxy);
-      console.info('step 4');
       const proxiedRequest = rp.defaults({ 'proxy': proxy });
-      console.info(proxiedRequest);
-      console.info('step 5');
       response = await proxiedRequest.post(options);
-      console.info('step 6');
     } else {
       response = await rp.post(options);
     }
-    console.info('step 7');
-    console.info(aipCurrentUser);
-    console.info('step 8');
     return aipCurrentUser;
   } catch (error) {
     console.log(`Error createUser ${error.message}`);
