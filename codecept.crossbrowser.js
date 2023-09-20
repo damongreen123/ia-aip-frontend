@@ -47,8 +47,8 @@ exports.config = {
       host: 'ondemand.eu-central-1.saucelabs.com',
       port: 80,
       region: 'eu',
-      user: SAUCE_USERNAME,
-      key: SAUCE_ACCESS_KEY
+      user: process.env.SAUCE_USERNAME,
+      key: process.env.SAUCE_ACCESS_KEY
     }
   },
   multiple: {
