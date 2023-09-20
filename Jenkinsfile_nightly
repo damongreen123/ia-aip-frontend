@@ -54,7 +54,6 @@ static LinkedHashMap<String, Object> secret(String secretName, String envVar) {
 def yarnBuilder = new uk.gov.hmcts.contino.YarnBuilder(this)
 
 withNightlyPipeline(type, product, component) {
-    enableSlackNotifications(channel)
 
     loadVaultSecrets(secrets)
 
