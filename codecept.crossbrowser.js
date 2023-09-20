@@ -32,6 +32,9 @@ exports.config = {
      process.exit();
   },
   helpers: {
+    SauceLabsReportingHelper: {
+      require: './helpers/SauceLabsReportingHelper.js'
+    }
     customHelper: {
       require: './test/e2e-test/helpers/navigationHelper.ts', // Import the custom helper file
     },
@@ -40,7 +43,12 @@ exports.config = {
       show: config.get('showTests'),
       chrome: {
         ignoreHTTPSErrors: true
-      }
+      },
+      host: 'ondemand.eu-central-1.saucelabs.com',
+      port: 80,
+      region: 'eu',
+      user: SAUCE_USERNAME,
+      key: SAUCE_ACCESS_KEY
     }
   },
   multiple: {
