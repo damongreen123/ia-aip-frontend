@@ -12,9 +12,6 @@ async function signInHelper() {
   }
   I.click('Sign in');
   I.wait(5);
-  if (userDetails) {
-    return userDetails;
-  }
 }
 
 function signInForUser(email: string) {

@@ -47,8 +47,10 @@ module.exports = {
       for (let i = 0; i < 3; i++) {
         let success = await I.waitForText('Do this next', 30) ? true : false;
         if (success !== true) {
-          await I.fillField('#username', userDetails.email);
-          await I.fillField('#password', userDetails.password);
+          await I.amOnPage(testUrl + paths.common.login);
+          await I.fillField('#username', currentUserDetails.email);
+          await I.fillField('#password', currentUserDetails.password);
+          await I.click('Sign in');
         }
       }
       await I.seeInTitle(`Your appeal overview - ${i18n.serviceName} - ${i18n.provider}`);
