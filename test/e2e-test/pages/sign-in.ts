@@ -43,7 +43,7 @@ module.exports = {
       I.amOnPage(testUrl + paths.common.login);
       await signInHelper();
       await I.wait(10);
-      for (let i = 0; i < 3; i++) {
+      for (let i = 0; i < 10; i++) {
         let success = await I.checkIfLogInIsSuccessful();
         if (success) { await I.see('Do this next'); } else {
           await I.amOnPage(testUrl + '/auth/logout');
