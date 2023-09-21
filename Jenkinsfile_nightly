@@ -80,14 +80,35 @@ withNightlyPipeline(type, product, component) {
     }
 
     afterAlways('crossBrowserTest') {
-        publishHTML([
-                allowMissing         : true,
-                alwaysLinkToLastBuild: true,
-                keepAll              : true,
-                reportDir            : "functional-output/crossbrowser/reports/",
-                reportFiles          : 'records.html',
-                reportName           : 'IA AIP Frontend Cross Browser Tests'
-        ])
+//        publishHTML([
+//                allowMissing         : true,
+//                alwaysLinkToLastBuild: true,
+//                keepAll              : true,
+//                reportDir            : "functional-output/crossbrowser/reports/*/",
+//                reportFiles          : 'records.html',
+//                reportName           : 'IA AIP Frontend Cross Browser Tests'
+//        ])
+        steps {
+            unstash 'source'
+
+            script {
+                sh 'ls functional-output/crossbrowser/reports/ > listFiles.txt'
+                def files = readFile("listFiles.txt").split("\\r?\\n");
+                sh 'rm -f listFiles.txt'
+                def reportFiles = ''
+                for (i = 0; i < files.size(); i++) {
+                    reportFiles += files[i] + '/records.html'
+                }
+                publishHTML([
+                    allowMissing         : true,
+                    alwaysLinkToLastBuild: true,
+                    keepAll              : true,
+                    reportDir            : "functional-output/crossbrowser/reports/",
+                    reportFiles          : reportFiles,
+                    reportName           : 'IA AIP Frontend Cross Browser Tests'
+                ])
+            }
+        }
     }
 
     afterAlways('mutationTest') {
