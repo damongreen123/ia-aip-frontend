@@ -88,23 +88,15 @@ withNightlyPipeline(type, product, component) {
 //                reportFiles          : 'records.html',
 //                reportName           : 'IA AIP Frontend Cross Browser Tests'
 //        ])
-        script {
-            sh 'ls functional-output/crossbrowser/reports/ > listFiles.txt'
-            def files = readFile("listFiles.txt").split("\\r?\\n");
-            sh 'rm -f listFiles.txt'
-            def reportFiles = files[i] + '/records.html'
-            for (i = 1; i < files.size(); i++) {
-                reportFiles += ',' + files[i] + '/records.html'
-            }
-            publishHTML([
+        publishHTML([
+                reportName           : 'IA AIP Frontend Cross Browser Tests',
+                reportDir            : "functional-output/crossbrowser/reports/",
+                reportFiles          : "${dir('reports') { findFiles(glob: '**/records.html').join(',') ?: 'Not found' }}",
                 allowMissing         : true,
                 alwaysLinkToLastBuild: true,
-                keepAll              : true,
-                reportDir            : "functional-output/crossbrowser/reports/",
-                reportFiles          : reportFiles,
-                reportName           : 'IA AIP Frontend Cross Browser Tests'
-            ])
-        }
+                keepAll              : true
+        ])
+
     }
 
     afterAlways('mutationTest') {
