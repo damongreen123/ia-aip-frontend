@@ -91,7 +91,7 @@ withNightlyPipeline(type, product, component) {
         publishHTML([
                 reportName           : 'IA AIP Frontend Cross Browser Tests',
                 reportDir            : "functional-output/crossbrowser/reports/",
-                reportFiles          : "${dir('reports') { findFiles(glob: '**/records.html').join(',') ?: 'Not found' }}",
+                reportFiles          : "${dir('functional-output/crossbrowser/reports') { findFiles(glob: '**/records.html').join(',') ?: 'Not found' }}",
                 allowMissing         : true,
                 alwaysLinkToLastBuild: true,
                 keepAll              : true
