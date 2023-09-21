@@ -88,7 +88,6 @@ withNightlyPipeline(type, product, component) {
                 reportFiles          : 'records.html',
                 reportName           : 'IA AIP Frontend Cross Browser Tests'
         ])
-        steps.archiveArtifacts allowEmptyArchive: true, artifacts: 'reports/tests-results/crossbrowser/*'
     }
 
     afterAlways('mutationTest') {
