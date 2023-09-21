@@ -88,8 +88,6 @@ withNightlyPipeline(type, product, component) {
 //                reportFiles          : 'records.html',
 //                reportName           : 'IA AIP Frontend Cross Browser Tests'
 //        ])
-        unstash 'source'
-
         script {
             sh 'ls functional-output/crossbrowser/reports/ > listFiles.txt'
             def files = readFile("listFiles.txt").split("\\r?\\n");
