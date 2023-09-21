@@ -88,26 +88,24 @@ withNightlyPipeline(type, product, component) {
 //                reportFiles          : 'records.html',
 //                reportName           : 'IA AIP Frontend Cross Browser Tests'
 //        ])
-        steps {
-            unstash 'source'
+        unstash 'source'
 
-            script {
-                sh 'ls functional-output/crossbrowser/reports/ > listFiles.txt'
-                def files = readFile("listFiles.txt").split("\\r?\\n");
-                sh 'rm -f listFiles.txt'
-                def reportFiles = ''
-                for (i = 0; i < files.size(); i++) {
-                    reportFiles += files[i] + '/records.html'
-                }
-                publishHTML([
-                    allowMissing         : true,
-                    alwaysLinkToLastBuild: true,
-                    keepAll              : true,
-                    reportDir            : "functional-output/crossbrowser/reports/",
-                    reportFiles          : reportFiles,
-                    reportName           : 'IA AIP Frontend Cross Browser Tests'
-                ])
+        script {
+            sh 'ls functional-output/crossbrowser/reports/ > listFiles.txt'
+            def files = readFile("listFiles.txt").split("\\r?\\n");
+            sh 'rm -f listFiles.txt'
+            def reportFiles = ''
+            for (i = 0; i < files.size(); i++) {
+                reportFiles += files[i] + '/records.html'
             }
+            publishHTML([
+                allowMissing         : true,
+                alwaysLinkToLastBuild: true,
+                keepAll              : true,
+                reportDir            : "functional-output/crossbrowser/reports/",
+                reportFiles          : reportFiles,
+                reportName           : 'IA AIP Frontend Cross Browser Tests'
+            ])
         }
     }
 
