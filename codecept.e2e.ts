@@ -5,7 +5,7 @@ import { bootstrap as ourBootStrap, teardown as ourTeardown } from './test/funct
 exports.config = {
   name: 'codecept',
   output: './functional-output/e2e/reports/',
-  //teardown: './test/functional/bootstrap.ts',
+  // teardown: './test/functional/bootstrap.ts',
   bootstrap: async () => {
     await ourBootStrap();
   },
@@ -39,7 +39,7 @@ exports.config = {
         'stdout': '-',
         'options': {
           'verbose': true,
-          'steps': true,
+          'steps': true
         }
       },
       'mochawesome': {
