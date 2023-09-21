@@ -16,7 +16,10 @@ exports.config = {
       chrome: {
         ignoreHTTPSErrors: true
       }
-    }
+    },
+    customHelper: {
+      require: './test/e2e-test/helpers/navigationHelper.ts', // Import the custom helper file
+    },
   },
   gherkin: {
     features: './test/e2e-test/features/*.feature',
