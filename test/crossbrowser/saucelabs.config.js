@@ -99,5 +99,13 @@ exports.config = {
       enableLog: true,
     },
   },
+  onComplete() {
+    return browser.getProcessedConfig().then(function (c) {
+      return browser.getSession().then(function (session) {
+        // required to be here so saucelabs picks up reports to put in jenkins
+        console.log('SauceOnDemandSessionID=' + session.getId() + ' job-name=ia-ccd-e2e-tests');
+      });
+    });
+  },
   require: [ 'ts-node/register/transpile-only' ]
 };
