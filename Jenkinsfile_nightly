@@ -94,9 +94,9 @@ withNightlyPipeline(type, product, component) {
             sh 'ls functional-output/crossbrowser/reports/ > listFiles.txt'
             def files = readFile("listFiles.txt").split("\\r?\\n");
             sh 'rm -f listFiles.txt'
-            def reportFiles = ''
-            for (i = 0; i < files.size(); i++) {
-                reportFiles += files[i] + '/records.html'
+            def reportFiles = files[i] + '/records.html'
+            for (i = 1; i < files.size(); i++) {
+                reportFiles += ',' + files[i] + '/records.html'
             }
             publishHTML([
                 allowMissing         : true,
