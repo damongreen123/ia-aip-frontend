@@ -62,6 +62,7 @@ withNightlyPipeline(type, product, component) {
     env.CCD_API_URL = 'http://ccd-data-store-api-aat.service.core-compute-aat.internal'
     env.IDAM_API_URL = 'https://idam-api.aat.platform.hmcts.net'
     env.S2S_MICROSERVICE_NAME = 'iac'
+    env.TEST_E2E_FAIL_FAST = 'false'
 
 //    enableCrossBrowserTest()
 //    disabled until fortify accounts are allocated
