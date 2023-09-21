@@ -63,13 +63,13 @@ withNightlyPipeline(type, product, component) {
     env.IDAM_API_URL = 'https://idam-api.aat.platform.hmcts.net'
     env.S2S_MICROSERVICE_NAME = 'iac'
 
-    enableCrossBrowserTest()
+//    enableCrossBrowserTest()
 //    disabled until fortify accounts are allocated
 //    enableFortifyScan()
-//    enableSecurityScan()
+    enableSecurityScan()
 //    mutation tests not yet implemented
 //    enableMutationTest()
-//    enableFullFunctionalTest(120)
+    enableFullFunctionalTest(120)
 
     after('fortify-scan') {
         steps.archiveArtifacts allowEmptyArchive: true, artifacts: '**/Fortify Scan/**/*'
@@ -80,14 +80,6 @@ withNightlyPipeline(type, product, component) {
     }
 
     afterAlways('crossBrowserTest') {
-//        publishHTML([
-//                allowMissing         : true,
-//                alwaysLinkToLastBuild: true,
-//                keepAll              : true,
-//                reportDir            : "functional-output/crossbrowser/reports/*/",
-//                reportFiles          : 'records.html',
-//                reportName           : 'IA AIP Frontend Cross Browser Tests'
-//        ])
         publishHTML([
                 reportName           : 'IA AIP Frontend Cross Browser Tests',
                 reportDir            : "functional-output/crossbrowser/reports/",
