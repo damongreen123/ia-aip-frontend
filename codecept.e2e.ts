@@ -1,5 +1,5 @@
 const config = require('config');
-const process = require("process");
+const process = require('process');
 import { bootstrap as ourBootStrap, teardown as ourTeardown } from './test/functional/bootstrap';
 
 exports.config = {
@@ -21,8 +21,8 @@ exports.config = {
       }
     },
     customHelper: {
-      require: './test/e2e-test/helpers/navigationHelper.ts', // Import the custom helper file
-    },
+      require: './test/e2e-test/helpers/navigationHelper.ts' // Import the custom helper file
+    }
   },
   gherkin: {
     features: './test/e2e-test/features/*.feature',
@@ -30,26 +30,26 @@ exports.config = {
   },
   plugins: {
     retryFailedStep: {
-       enabled: true
+      enabled: true
     }
   },
-    "mocha": {
-        "reporterOptions": {
-            "codeceptjs-cli-reporter": {
-                "stdout": "-",
-                "options": {
-                    "verbose": true,
-                    "steps": true,
-                }
-            },
-           "mochawesome": {
-                "stdout": "./functional-output/e2e/reports/console.log",
-                "options": {
-                    "reportDir": "./functional-output/e2e/reports/",
-                    "reportFilename": "report"
-                }
-            }
+  'mocha': {
+    'reporterOptions': {
+      'codeceptjs-cli-reporter': {
+        'stdout': '-',
+        'options': {
+          'verbose': true,
+          'steps': true,
         }
-    },
+      },
+      'mochawesome': {
+        'stdout': './functional-output/e2e/reports/console.log',
+        'options': {
+          'reportDir': './functional-output/e2e/reports/',
+          'reportFilename': 'report'
+        }
+      }
+    }
+  },
   require: ['ts-node/register/transpile-only']
 };
