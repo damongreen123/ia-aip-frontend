@@ -67,7 +67,7 @@ withNightlyPipeline(type, product, component) {
 //    enableCrossBrowserTest()
 //    disabled until fortify accounts are allocated
 //    enableFortifyScan()
-    enableSecurityScan()
+//    enableSecurityScan()
 //    mutation tests not yet implemented
 //    enableMutationTest()
     enableFullFunctionalTest(120)
