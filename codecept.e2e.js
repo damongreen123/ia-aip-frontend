@@ -16,6 +16,9 @@ exports.config = {
         ignoreHTTPSErrors: true
       }
     },
+    customHelper: {
+      require: './test/e2e-test/helpers/navigationHelper.ts', // Import the custom helper file
+    },
     FailedTest: {
       require: './test/e2e-test/helpers/failedTestHelper.js',
     },
