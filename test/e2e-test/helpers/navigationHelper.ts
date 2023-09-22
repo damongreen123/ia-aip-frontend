@@ -1,7 +1,7 @@
 'use strict';
 import assert from 'assert';
 
-let Helper = codecept_helper;
+const Helper = require('@codeceptjs/helper');
 
 class NavigationHelper extends Helper {
   async checkIfFailedNavigation() {
