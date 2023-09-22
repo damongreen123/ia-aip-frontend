@@ -1,13 +1,12 @@
 const config = require('config');
 const process = require("process");
 
-
 exports.config = {
   name: 'codecept',
   output: './functional-output/e2e/reports/',
   //teardown: './test/functional/bootstrap.ts',
   teardown: async () => {
-     process.exit();
+     process.exit()
   },
   helpers: {
     Puppeteer: {
@@ -16,7 +15,10 @@ exports.config = {
       chrome: {
         ignoreHTTPSErrors: true
       }
-    }
+    },
+    FailedTest: {
+      require: './test/e2e-test/helpers/failedTestHelper.js',
+    },
   },
   gherkin: {
     features: './test/e2e-test/features/*.feature',
