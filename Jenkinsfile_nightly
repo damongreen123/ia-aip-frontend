@@ -65,6 +65,7 @@ withNightlyPipeline(type, product, component) {
     env.TEST_E2E_FAIL_FAST = 'false'
 
 //    enableCrossBrowserTest()
+//    TODO re add in fortify once issues have been resolved
 //    disabled until fortify accounts are allocated
 //    enableFortifyScan()
 //    enableSecurityScan()
