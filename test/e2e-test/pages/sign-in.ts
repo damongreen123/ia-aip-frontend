@@ -43,14 +43,15 @@ module.exports = {
       I.amOnPage(testUrl + paths.common.login);
       await signInHelper();
       for (let i = 0; i < 10; i++) {
-        let success = await I.checkIfLogInIsSuccessful();
-        if (success) { await I.see('Do this next'); } else {
+        let success = await I.checkIfLogInIsSuccessful(10);
+        if (success) {
+          break;
+        } else {
           await I.amOnPage(testUrl + '/auth/logout');
           await I.amOnPage(testUrl + paths.common.login);
           await I.fillField('#username', currentUserDetails.email);
           await I.fillField('#password', currentUserDetails.password);
           await I.click('Sign in');
-          await I.wait(10);
         }
       }
       await I.seeInTitle(`Your appeal overview - ${i18n.serviceName} - ${i18n.provider}`);
