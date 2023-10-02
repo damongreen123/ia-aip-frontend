@@ -42,7 +42,6 @@ module.exports = {
     Given('I am authenticated as a valid appellant', async () => {
       I.amOnPage(testUrl + paths.common.login);
       await signInHelper();
-      await I.wait(10);
       for (let i = 0; i < 10; i++) {
         let success = await I.checkIfLogInIsSuccessful();
         if (success) { await I.see('Do this next'); } else {
