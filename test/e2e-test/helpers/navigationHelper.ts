@@ -21,13 +21,13 @@ class NavigationHelper extends Helper {
       await helper.waitForText('Do this next', timeout);
       return true;
     } catch (err) {
-      console.log(err)
+      // Do nothing
     }
     try {
       await helper.waitForText('Nothing to do next', timeout);
       return true;
     } catch (err) {
-      console.log(err)
+      // Do nothing
     }
     // assert.ok(false); // Or do an assert to throw an error if the above did not work
     return false;
