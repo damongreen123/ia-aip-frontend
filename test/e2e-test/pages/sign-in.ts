@@ -43,14 +43,10 @@ module.exports = {
       I.amOnPage(testUrl + paths.common.login);
       await signInHelper();
       for (let i = 0; i < 10; i++) {
-        let success = await I.checkIfLogInIsSuccessful(15);
-        console.log(success);
+        let success = await I.checkIfLogInIsSuccessful(10);
         if (success === true) {
-          console.log('LOG 1');
           break;
-          console.log('LOG 2');
         } else {
-          console.log('LOG 3');
           await I.amOnPage(testUrl + '/auth/logout');
           await I.amOnPage(testUrl + paths.common.login);
           await I.fillField('#username', currentUserDetails.email);

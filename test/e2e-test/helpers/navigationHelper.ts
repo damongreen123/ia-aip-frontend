@@ -7,25 +7,20 @@ class NavigationHelper extends Helper {
   async checkIfFailedNavigation() {
     const helper = this.helpers['WebdriverIO']; // Or change to another Helper
     try {
-      await helper.waitForText('There is a problem with the service', 1);
-      return false;
+      await helper.see('There is a problem with the service');
+      return true;
     } catch (err) {
       // Do nothing
     }
-    // assert.ok(false); // Or do an assert to throw an error if the above did not work
-    return true;
+    return false;
   }
   async checkIfLogInIsSuccessful(timeout) {
     const helper = this.helpers['Puppeteer']; // Or change to another Helper
-    console.log(helper.page.url());
     try {
-      console.log('navLog1');
       await helper.wait(timeout);
       assert.ok(helper.page.url().includes('appeal-overview'));
-      console.log('navLog2');
       return true;
     } catch (err) {
-      console.log('navLog3');
       return false;
     }
   }

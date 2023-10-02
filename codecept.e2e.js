@@ -1,5 +1,6 @@
 const config = require('config');
 const process = require("process");
+const afterStepHook = require("./test/e2e-test/helpers/afterStepHook.js");
 
 exports.config = {
   name: 'codecept',
@@ -8,6 +9,7 @@ exports.config = {
   teardown: async () => {
      process.exit()
   },
+  hooks: [afterStepHook],
   helpers: {
     Puppeteer: {
       url: config.get('testUrl'),
