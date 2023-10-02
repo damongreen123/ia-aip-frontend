@@ -17,14 +17,17 @@ class NavigationHelper extends Helper {
   }
   async checkIfLogInIsSuccessful(timeout) {
     const helper = this.helpers['Puppeteer']; // Or change to another Helper
+    console.log(helper.page.url())
     try {
-      await helper.waitInUrl('/appeal-overview', timeout);
+      console.log('navLog1');
+      await helper.wait(timeout);
+      assert helper.page.url().includes('appeal-overview');
+      console.log('navLog2');
       return true;
     } catch (err) {
-      // Do nothing
+      console.log('navLog3');
+      return false;
     }
-    // assert.ok(false); // Or do an assert to throw an error if the above did not work
-    return false;
   }
 }
 
