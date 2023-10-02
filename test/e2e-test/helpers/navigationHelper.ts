@@ -21,7 +21,7 @@ class NavigationHelper extends Helper {
     try {
       console.log('navLog1');
       await helper.wait(timeout);
-      assert.ok(helper.page.url().includes('appeal-overview') == true);
+      assert.ok(helper.page.url().includes('appeal-overview'));
       console.log('navLog2');
       return true;
     } catch (err) {
