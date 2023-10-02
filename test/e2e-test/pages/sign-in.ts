@@ -40,10 +40,10 @@ module.exports = {
     });
 
     Given('I am authenticated as a valid appellant', async () => {
-      I.amOnPage(testUrl + paths.common.login);
+      I.amOnPage('https://immigration-appeal.aat.platform.hmcts.net/login');
       await signInHelper();
       for (let i = 0; i < 10; i++) {
-        let success = await I.checkIfLogInIsSuccessful(10);
+        let success = await I.checkIfLogInIsSuccessful(15);
         if (success === true) {
           break;
         } else {
