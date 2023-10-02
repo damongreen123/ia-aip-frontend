@@ -18,13 +18,7 @@ class NavigationHelper extends Helper {
   async checkIfLogInIsSuccessful(timeout) {
     const helper = this.helpers['Puppeteer']; // Or change to another Helper
     try {
-      await helper.waitForText('Do this next', timeout);
-      return true;
-    } catch (err) {
-      // Do nothing
-    }
-    try {
-      await helper.waitForText('Nothing to do next', timeout);
+      await helper.waitInUrl('/appeal-overview', timeout);
       return true;
     } catch (err) {
       // Do nothing
