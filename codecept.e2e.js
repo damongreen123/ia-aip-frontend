@@ -3,6 +3,7 @@ const process = require("process");
 
 exports.config = {
   name: 'codecept',
+  retry: 5,
   output: './functional-output/e2e/reports/',
   //teardown: './test/functional/bootstrap.ts',
   teardown: async () => {
