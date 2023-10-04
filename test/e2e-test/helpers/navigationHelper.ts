@@ -32,7 +32,7 @@ class NavigationHelper extends Helper {
     try {
       await helper.wait(timeout);
       assert.ok(helper.page.url().includes('appeal-overview'));
-      for (let i=0; i < 3; i++) {
+      for (let i = 0; i < 3; i++) {
         let success = await this.checkIfSuccessfulLoad();
         if (success === true) {
           return true;
