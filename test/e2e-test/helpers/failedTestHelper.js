@@ -22,6 +22,7 @@ class FailedTest extends Helper {
       }
     } catch (err) {
       output.log('Found no flakiness');
+      output.log(err);
     }
   }
 }
