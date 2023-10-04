@@ -14,8 +14,8 @@ class FailedTest extends Helper {
     const url = await helper.page.url();
     const isNotContainingUnwantedString = string => !url.includes(string);
     try {
-      await output.log(isNotContainingUnwantedString)
-      assert.ok(await unwantedStrings.every(isNotContainingUnwantedString));
+      output.log(unwantedStrings.every(isNotContainingUnwantedString));
+      assert.ok(unwantedStrings.every(isNotContainingUnwantedString));
       for (let i = 0; i < 10; i++) {
         await output.log('waiting for sign out text');
         await helper.waitForText('Sign out', 5);
