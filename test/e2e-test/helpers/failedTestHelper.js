@@ -11,9 +11,10 @@ class FailedTest extends Helper {
     const helper = this.helpers['Puppeteer'];
     output.log('Checking flakiness');
     const unwantedStrings = ['idam', 'start-appeal', 'eligibility'];
-    const isNotContainingUnwantedString = string => !helper.page.url().includes(string);
+    const url = await helper.page.url();
+    const isNotContainingUnwantedString = string => !url.includes(string);
     try {
-      assert.ok(unwantedStrings.every(isNotContainingUnwantedString));
+      await assert.ok(unwantedStrings.every(isNotContainingUnwantedString));
       for (let i = 0; i < 10; i++) {
         await helper.waitForText('Sign out', 5);
         await helper.see('Sorry, there is a problem with this service');
