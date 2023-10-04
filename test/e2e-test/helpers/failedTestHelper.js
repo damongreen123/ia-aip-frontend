@@ -21,7 +21,7 @@ class FailedTest extends Helper {
         await helper.wait(5);
       }
     } catch (err) {
-      // do nothing
+      output.log('Found no flakiness');
     }
   }
 }
