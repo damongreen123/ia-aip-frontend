@@ -19,7 +19,7 @@ module.exports = {
   aipToLegalRepNoC(I) {
     When(/^I get and save the Case Reference number and names$/, async () => {
       await I.waitForText('Online case reference number:', 30);
-      let list = await I.grabTextFrom('li');
+      let list = await I.grabTextFromAll('li');
       const caseRef = list[0].split(': ')[1];
       let fullName = await list[1].split(': ')[1];
       const forename = fullName.split(' ')[0];
