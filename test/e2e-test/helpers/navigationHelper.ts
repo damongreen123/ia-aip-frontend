@@ -10,7 +10,7 @@ class NavigationHelper extends Helper {
       for (let i = 0; i < 5; i++) {
         await helper.see('There is a problem with the service');
         await helper.refreshPage();
-        output.error("Saw flakey problem with service")
+        output.error('Saw flakey problem with service');
         await helper.wait(5);
       }
     } catch (err) {
