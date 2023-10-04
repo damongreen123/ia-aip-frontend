@@ -19,8 +19,8 @@ class FailedTest extends Helper {
         await helper.waitForText('Sign out', 5);
         await helper.see('Sorry, there is a problem with this service');
         await helper.page.reload();
+        await helper.waitForNavigation();
         output.error('Saw flakey problem with service');
-        await helper.wait(5);
       }
     } catch (err) {
       output.log('Found no flakiness');
