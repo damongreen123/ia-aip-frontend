@@ -32,7 +32,7 @@ class NavigationHelper extends Helper {
     try {
       await helper.wait(timeout);
       assert.ok(helper.page.url().includes('appeal-overview'));
-      await helper.dontSee('There is a problem with the service');
+      await helper.see('Your appeal details');
       return true;
     } catch (err) {
       return false;
