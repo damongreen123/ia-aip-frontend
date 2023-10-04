@@ -16,10 +16,9 @@ class FailedTest extends Helper {
     try {
       await assert.ok(unwantedStrings.every(isNotContainingUnwantedString));
       for (let i = 0; i < 10; i++) {
-        await helper.page.waitForNavigation()
         await helper.waitForText('Sign out', 5);
         await helper.see('Sorry, there is a problem with this service');
-        await helper.refreshPage();
+        await helper.page.reload();
         output.error('Saw flakey problem with service');
         await helper.wait(5);
       }
