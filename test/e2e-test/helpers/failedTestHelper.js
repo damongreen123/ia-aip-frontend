@@ -4,9 +4,9 @@ const process = require('process');
 const assert = require('assert');
 
 class FailedTest extends Helper {
-//  _failed() {
-//    process.exit(1);
-//  }
+  _failed() {
+    process.exit(1);
+  }
   async _beforeStep() {
     const helper = this.helpers['Puppeteer'];
     output.log('Checking flakiness');
