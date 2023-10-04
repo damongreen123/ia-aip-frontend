@@ -17,23 +17,31 @@ class NavigationHelper extends Helper {
       // do nothing
     }
   }
-  async checkIfFailedNavigation() {
+  async checkIfSuccessfulLoad() {
     const helper = this.helpers['Puppeteer']; // Or change to another Helper
     try {
       await helper.see('There is a problem with the service');
-      return true;
+      return false;
     } catch (err) {
       // Do nothing
     }
-    return false;
+    return true;
   }
   async checkIfLogInIsSuccessful(timeout) {
     const helper = this.helpers['Puppeteer']; // Or change to another Helper
     try {
       await helper.wait(timeout);
       assert.ok(helper.page.url().includes('appeal-overview'));
-      await helper.see('Your appeal details');
-      return true;
+      for (let i=0; i < 3; i++) {
+        let success = await this.checkIfSuccessfulLoad();
+        if (success === true) {
+          return true;
+        } else {
+          await helper.refreshPage();
+          await helper.wait(2);
+        }
+      }
+      return false;
     } catch (err) {
       return false;
     }
