@@ -47,7 +47,7 @@ module.exports = {
         if (success === true) {
           break;
         } else {
-          await I.amOnPage(testUrl + '/auth/logout');
+          await I.amOnPage(testUrl + '/logout');
           await I.amOnPage(testUrl + paths.common.login);
           await I.fillField('#username', currentUserDetails.email);
           await I.fillField('#password', currentUserDetails.password);
