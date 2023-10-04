@@ -7,12 +7,13 @@ class FailedTest extends Helper {
   _failed() {
     process.exit(1);
   }
-  async _beforeStep() {
+  async _afterStep(step) {
     const helper = this.helpers['Puppeteer'];
     await output.log('Checking flakiness');
     const unwantedStrings = ['idam', 'start-appeal', 'eligibility'];
     const url = await helper.page.url();
     const isNotContainingUnwantedString = string => !url.includes(string);
+    let retry = false;
     try {
       output.log(unwantedStrings.every(isNotContainingUnwantedString));
       assert.ok(unwantedStrings.every(isNotContainingUnwantedString));
@@ -26,10 +27,14 @@ class FailedTest extends Helper {
         await output.log('Saw flakey problem with service');
         await helper.page.reload();
         await output.log('Reloaded page');
+        retry = true;
       }
     } catch (err) {
       await output.log(err);
       await output.log('Found no flakiness');
+      if (retry === true) {
+        step.run()
+      }
     }
   }
 }
