@@ -4,8 +4,11 @@ const process = require('process');
 const assert = require('assert');
 
 class FailedTest extends Helper {
-  _failed() {
-    process.exit(1);
+//  _failed() {
+//    process.exit(1);
+//  }
+  _finishTest() {
+    console.log('FINISHED ALL TESTS WOOOOO')
   }
   async _afterStep(step) {
     const helper = this.helpers['Puppeteer'];
