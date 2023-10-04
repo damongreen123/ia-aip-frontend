@@ -25,7 +25,7 @@ class FailedTest extends Helper {
         await output.log(content)
         assert.ok(content.includes('Sorry, there is a problem with this service'))
         await output.log('Saw flakey problem with service');
-        await helper.page.reload();
+        await helper.refreshPage();
         await output.log('Reloaded page');
         retry = true;
       }
