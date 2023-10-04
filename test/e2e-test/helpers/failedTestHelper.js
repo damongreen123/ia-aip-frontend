@@ -21,14 +21,15 @@ class FailedTest extends Helper {
         await helper.waitForText('Sign out', 5);
         await output.log('Can I see flakey error page?');
         const content = await helper.page.content()
+        await output.log(content)
         assert.ok(content.includes('Sorry, there is a problem with this service'))
         await output.log('Saw flakey problem with service');
         await helper.page.reload();
         await output.log('Reloaded page');
       }
     } catch (err) {
-      await output.log('Found no flakiness');
       await output.log(err);
+      await output.log('Found no flakiness');
     }
   }
 }
