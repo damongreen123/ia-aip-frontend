@@ -18,6 +18,7 @@ class NavigationHelper extends Helper {
     const helper = this.helpers['Puppeteer']; // Or change to another Helper
     try {
       await helper.wait(timeout);
+      assert.ok(helper.page.url().includes('appeal-overview'));
       await helper.dontSee('There is a problem with the service');
       return true;
     } catch (err) {
