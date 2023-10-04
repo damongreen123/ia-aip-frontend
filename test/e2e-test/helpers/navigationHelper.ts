@@ -8,7 +8,7 @@ class NavigationHelper extends Helper {
     const helper = this.helpers['Puppeteer']; // Or change to another Helper
     try {
       for (let i = 0; i < 5; i++) {
-        await helper.see('There is a problem with the service');
+        await helper.see('Sorry, there is a problem with this service');
         await helper.refreshPage();
         output.error('Saw flakey problem with service');
         await helper.wait(5);
@@ -20,7 +20,7 @@ class NavigationHelper extends Helper {
   async checkIfSuccessfulLoad() {
     const helper = this.helpers['Puppeteer']; // Or change to another Helper
     try {
-      await helper.see('There is a problem with the service');
+      await helper.see('Sorry, there is a problem with this service');
       return false;
     } catch (err) {
       // Do nothing
