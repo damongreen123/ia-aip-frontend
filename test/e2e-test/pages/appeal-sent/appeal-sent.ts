@@ -13,11 +13,11 @@ module.exports = {
       await I.see('You still have to Pay for your appeal.');
     });
 
-    Then('I am on the make payment page' async () => {
+    Then('I am on the make payment page', async () => {
       await I.waitForText('Enter card details', 20);
     });
 
-    When('I make a successful payment' async () => {
+    When('I make a successful payment', async () => {
       await I.see('Enter card details', 'h1');
       await I.fillField('#card-no','4444333322221111');
       await I.fillField('#expiry-month','10');
