@@ -5,7 +5,16 @@ exports.config = {
   name: 'codecept',
   retry: 5,
   output: './functional-output/e2e/reports/',
-  //teardown: './test/functional/bootstrap.ts',
+  bootstrap: async() => {
+    global.testFailed = false;
+  },
+  teardown: async() => {
+    if (global.testFailed) {
+      process.exit(1);
+    } else {
+      process.exit(0);
+    }
+  },
   helpers: {
     Puppeteer: {
       url: config.get('testUrl'),
