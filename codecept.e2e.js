@@ -6,9 +6,6 @@ exports.config = {
   retry: 5,
   output: './functional-output/e2e/reports/',
   //teardown: './test/functional/bootstrap.ts',
-  teardown: async () => {
-     process.exit()
-  },
   helpers: {
     Puppeteer: {
       url: config.get('testUrl'),
