@@ -26,9 +26,15 @@ module.exports = {
     });
 
     Then(/^I complete the case details page$/, async () => {
-      await I.waitForText('These are your case details. If these are not the correct details, you should contact the Tribunal.', 60);
+      await I.see('These are your case details. If these are not the correct details, you should contact the Tribunal.');
       await I.seeInCurrentUrl('start-representing-yourself/confirm-case-details');
       await I.click('Continue');
+    });
+
+    Then(/^I see the confirm case details page/, async () => {
+      await I.seeInCurrentUrl('start-representing-yourself/confirm-case-details');
+      await I.see('These are your case details. If these are not the correct details, you should contact the Tribunal.');
+      await I.see('You can now access your case. You will first need to create an account or sign in if you already have one.');
     });
 
     Then(/^I am on the self register page$/, async () => {
