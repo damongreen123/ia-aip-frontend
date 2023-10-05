@@ -112,8 +112,8 @@ module.exports = {
       await retryTo(async (tryNum) => {
         await I.selectOption('#next-step', 'Stop representing a client');
         await I.click('Go');
-        await I.waitForText('Once you\'ve submitted this request', 60)
-      }, 3)
+        await I.waitForText('Once you\'ve submitted this request', 60);
+      }, 3);
       await I.click('Continue');
       await I.waitForText('Submit', 60);
       await I.click('Submit');

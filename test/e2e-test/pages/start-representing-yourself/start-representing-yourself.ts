@@ -4,13 +4,14 @@ const config = require('config');
 
 const testUrl = config.get('testUrl');
 
-let NotifyClient = require('notifications-node-client').NotifyClient
+let NotifyClient = require('notifications-node-client').NotifyClient;
 const govNotifyApiKey = config.get('govNotify.accessKey');
-let notifyClient = new NotifyClient(govNotifyApiKey)
+let notifyClient = new NotifyClient(govNotifyApiKey);
 let caseReferenceNumber;
 let accessCode;
 let firstName;
 let lastName;
+
 module.exports = {
   startRepresentingYourself(I) {
     When(/^I visit the start-representing-yourself page$/, async () => {
@@ -66,17 +67,17 @@ module.exports = {
     });
 
     When('I get the NoC required data from the sent notification', async () => {
-        let response = await notifyClient.getNotifications()
-        let data = response.data.notifications.filter(item => item.template.id === 'abb94a28-62e3-4aea-9dba-9bdea1f6c9ec');
-        let emailBody = data[0].body;
-        let usefulInfo = emailBody.split('Enter your online case reference number: ')[1]
-                                  .split('The security code is valid')[0]
-                                  .split('*Enter this security code: ');
-        caseReferenceNumber = usefulInfo[0].trim();
-        accessCode = usefulInfo[1].trim();
-        let name = emailBody.split('Appellant name:')[1].split('The online service:')[0].trim();
-        firstName = name.split(' ')[0];
-        lastName = name.split(' ')[1];
+      let response = await notifyClient.getNotifications()
+      let data = response.data.notifications.filter(item => item.template.id === 'abb94a28-62e3-4aea-9dba-9bdea1f6c9ec');
+      let emailBody = data[0].body;
+      let usefulInfo = emailBody.split('Enter your online case reference number: ')[1]
+                                .split('The security code is valid')[0]
+                                .split('*Enter this security code: ');
+      caseReferenceNumber = usefulInfo[0].trim();
+      accessCode = usefulInfo[1].trim();
+      let name = emailBody.split('Appellant name:')[1].split('The online service:')[0].trim();
+      firstName = name.split(' ')[0];
+      lastName = name.split(' ')[1];
     });
 
     Then('I see enter case number page content', async () => {
