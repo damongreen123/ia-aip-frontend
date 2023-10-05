@@ -67,7 +67,7 @@ module.exports = {
     });
 
     When('I get the NoC required data from the sent notification', async () => {
-      let response = await notifyClient.getNotifications()
+      let response = await notifyClient.getNotifications();
       let data = response.data.notifications.filter(item => item.template.id === 'abb94a28-62e3-4aea-9dba-9bdea1f6c9ec');
       let emailBody = data[0].body;
       let usefulInfo = emailBody.split('Enter your online case reference number: ')[1]
