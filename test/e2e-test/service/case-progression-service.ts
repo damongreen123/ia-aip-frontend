@@ -237,8 +237,8 @@ module.exports = {
       await I.click('I am no longer representing myself');
       await I.waitForText('Online case reference number:', 30);
       let ref = await I.grabTextFrom('//li');
-      appealReference = ref.split('Online case reference number: ')[1]
-      caseUrl = exUiUrl + 'cases/case-details/' + appealReference
+      appealReference = ref.split('Online case reference number: ')[1];
+      caseUrl = exUiUrl + 'cases/case-details/' + appealReference;
     });
 
     Then(/^I sign in as a Case Officer and Request Home Office data$/, async () => {

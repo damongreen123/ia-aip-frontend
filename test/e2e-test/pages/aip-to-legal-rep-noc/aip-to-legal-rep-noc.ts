@@ -30,12 +30,14 @@ module.exports = {
     });
 
     When(/^I log in as a Legal Rep$/, async () => {
-      await I.retry(3).amOnPage(exuiBaseUrl);
-      await I.waitForElement('#username', 30);
-      await I.fillField('#username', config.get('testAccounts.testLawFirmAUsername'));
-      await I.fillField('#password', config.get('testAccounts.testLawFirmAPassword'));
-      await I.click('Sign in');
-      await I.waitForText('Your cases', 60);
+      await retryTo(async (tryNum) => {
+        await I.retry(3).amOnPage(exuiBaseUrl + '/auth/logout');
+        await I.waitForElement('#username', 30);
+        await I.fillField('#username', config.get('testAccounts.testLawFirmAUsername'));
+        await I.fillField('#password', config.get('testAccounts.testLawFirmAPassword'));
+        await I.click('Sign in');
+        await I.waitForText('Your cases', 30);
+      }, 5);
     });
 
     When(/^I go to Notice of Change$/, async () => {

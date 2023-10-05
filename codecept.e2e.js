@@ -42,6 +42,9 @@ exports.config = {
       enabled: true,
       fullPageScreenshots: true,
       deleteSuccessful: false
+    },
+    retryTo: {
+      enabled: true
     }
   },
     "mocha": {
