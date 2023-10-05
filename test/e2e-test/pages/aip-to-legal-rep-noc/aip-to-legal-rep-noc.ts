@@ -67,7 +67,7 @@ module.exports = {
       await I.see('Notice of change successful');
     });
 
-    Then('I fail this test' async () => {
+    Then('I fail this test' async, () => {
       assert('a' === 'b');
     });
   }
