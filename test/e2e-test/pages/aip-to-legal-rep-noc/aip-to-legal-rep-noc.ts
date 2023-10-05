@@ -1,5 +1,5 @@
 import { paths } from '../../../../app/paths';
-
+const assert = require('assert')
 const config = require('config');
 let caseReferenceNumber;
 let firstName;
@@ -65,6 +65,10 @@ module.exports = {
 
     Then(/^I should see the success screen$/, async () => {
       await I.see('Notice of change successful');
+    });
+
+    Then('I fail this test' async () => {
+      assert('a' === 'b');
     });
   }
 };

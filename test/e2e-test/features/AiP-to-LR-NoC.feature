@@ -1,8 +1,9 @@
-@aip-to-lr-noc @nightly-test
+@aip-to-lr-noc @nightly-test @failing-test
 Feature: Appellant in person to Legal Rep Notice of change
 
 Scenario: Complete NoC Happy path AiP to LR
    Given I am on home page
+   Then I fail this test
    When I click Sign in to continue with your appeal
    Then I should see the sign in page
    When I am authenticated as a valid appellant
