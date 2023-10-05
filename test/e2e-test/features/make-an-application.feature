@@ -62,8 +62,11 @@ Feature: Make an application
     Then I should be taken to the check-and-send page
     When I check the statement of truth
     And I submit appeal for a decision with hearing paid appeal
-
-    Then I am on the appeal details sent page
+    Then I am on the appeal details submitted page
+    When I click "Pay for this appeal" button
+    Then I am on the make payment page
+    When I make a successful payment
+    Then I am on the appeal details sent with payment page
     And I see "Your appeal details have been sent" in title
 
   @nightly-test
