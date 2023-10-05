@@ -66,11 +66,5 @@ module.exports = {
     Then(/^I should see the success screen$/, async () => {
       await I.see('Notice of change successful');
     });
-
-    Then('I fail this test', async () => {
-      let a = 'a';
-      let b = 'b';
-      assert(a === b);
-    });
   }
 };
