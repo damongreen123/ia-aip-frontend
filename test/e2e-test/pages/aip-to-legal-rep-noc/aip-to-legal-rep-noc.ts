@@ -68,7 +68,9 @@ module.exports = {
     });
 
     Then('I fail this test', async () => {
-      assert('a' === 'b');
+      let a = 'a';
+      let b = 'b';
+      assert(a === b);
     });
   }
 };
