@@ -234,10 +234,11 @@ module.exports = {
     Then(/^I grab the Appeal Reference$/, async () => {
       await I.click('See your appeal progress');
       await I.waitForText('Appeal reference', 30);
-      let source = await I.grabSource();
-      let startIndex = await source.indexOf('Appeal reference: ');
-      let endIndex = startIndex + 40;
-      appealReference = await source.slice(startIndex, endIndex).split('<')[0].split('Appeal reference: ')[1];
+      await I.click('I am no longer representing myself');
+      await I.waitForText('Online case reference number:', 30);
+      let ref = await I.grabTextFrom('//li');
+      appealReference = ref.split('Online case reference number: ')[1]
+      caseUrl = exUiUrl + 'cases/case-details/' + appealReference
     });
 
     Then(/^I sign in as a Case Officer and Request Home Office data$/, async () => {
@@ -247,17 +248,8 @@ module.exports = {
       await I.fillField('#password', caseOfficerPassword);
       await I.click('Sign in');
       await I.waitForText('Case list', 30);
-      await I.amOnPage(exUiUrl + 'cases');
-      await I.waitForText('Reset', 30);
-      await I.click('Reset');
-      await I.waitForText('Your cases', 30);
-      await I.waitForElement('#appealReferenceNumber', 30);
-      await I.fillField('#appealReferenceNumber', appealReference);
-      await I.click('Apply');
-      await I.waitForText('Random User', 30);
-      await I.click(locate('tbody').find('span').withText(appealReference));
+      await I.amOnPage(caseUrl);
       await I.waitForText('Do this next', 30);
-      caseUrl = await I.grabCurrentUrl();
       await I.selectOption('#next-step', 'Request Home Office data');
       await I.click('Go');
       await I.waitForText('Match appellant details', 30);
