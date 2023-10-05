@@ -1,5 +1,5 @@
 import { paths } from '../../../../app/paths';
-const assert = require('assert')
+const assert = require('assert');
 const config = require('config');
 let caseReferenceNumber;
 let firstName;
