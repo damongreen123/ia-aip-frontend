@@ -4,6 +4,11 @@ const config = require('config');
 
 const testUrl = config.get('testUrl');
 
+var NotifyClient = require('notifications-node-client').NotifyClient
+const govNotifyApiKey = config.get('govNotify.accessKey');
+var notifyClient = new NotifyClient(govNotifyApiKey)
+
+
 module.exports = {
   startRepresentingYourself(I) {
     When(/^I visit the start-representing-yourself page$/, async () => {
@@ -49,6 +54,26 @@ module.exports = {
       await I.seeInCurrentUrl('start-representing-yourself/confirm-case-details');
       await I.see(name);
       await I.see(caseNumber);
+    });
+
+// TODO implement this instead of current LR to AiP NoC once LR env wrt testing has been fixed
+    When('I test gov notify client', async () => {
+      let notifications = await notifyClient
+        .getNotifications()
+        .then((response) => {
+          let data = response.data.notifications.filter(item => item.template.id === 'abb94a28-62e3-4aea-9dba-9bdea1f6c9ec');
+          let emailBody = data[0].body;
+          let usefulInfo = emailBody.split('Enter your online case reference number: ')[1]
+                                    .split('The security code is valid')[0]
+                                    .split('*Enter this security code: ');
+          let caseRef = usefulInfo[0].trim();
+          let code = usefulInfo[1].trim();
+          let name = emailBody.split('Appellant name:')[1].split('The online service:')[0].trim();
+          let firstName = name.split(' ')[0];
+          let lastName = name.split(' ')[1];
+          console.log(caseRef, code, firstName, lastName)
+        })
+        .catch((err) => console.error(err))
     });
   }
 };
