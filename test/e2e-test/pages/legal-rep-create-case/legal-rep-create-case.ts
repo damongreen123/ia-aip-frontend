@@ -23,14 +23,10 @@ module.exports = {
   legalRepCreateCase(I) {
     When(/^I create a new case and submit it$/, async () => {
       await I.retry(3).amOnPage(exuiBaseUrl + '/cases/case-filter');
-      for (let i = 0; i < 3; i++) {
-        try {
-          await I.selectOption('#cc-jurisdiction', 'Immigration & Asylum');
-          await I.selectOption('#cc-case-type', 'Appeal* master');
-          await I.selectOption('#cc-event', 'Start your appeal');
-        } catch {
-          I.wait(20);
-        }
+      await I.waitForElement('#cc-jurisdiction option[value="IA"]', 60);
+      await I.selectOption('#cc-jurisdiction', 'Immigration & Asylum');
+      await I.selectOption('#cc-case-type', 'Appeal* master');
+      await I.selectOption('#cc-event', 'Start your appeal');
       }
       await I.click('Start');
       await I.waitForText('Tell us about your client', 60);
