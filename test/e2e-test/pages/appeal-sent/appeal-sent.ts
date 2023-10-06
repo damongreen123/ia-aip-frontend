@@ -39,8 +39,7 @@ module.exports = {
       I.see('Your appeal details have been sent');
       I.see('A Tribunal Caseworker will ask the Home Office to send any documents it has about your case to the Tribunal');
       I.see('A Tribunal Caseworker will check the Home Office documents and then contact you to tell you what to do next');
-      I.see('This should be by 10 October 2023 but it might be later than that');
-
+      I.seeInSource(moment().add(5,'days').format(dayMonthYearFormat));
     });
 
     Then('I see the respond by date is 4 weeks in the future', async () => {
