@@ -120,5 +120,13 @@ module.exports = {
       await I.see('You can now access your case. You will first need to create an account or sign in if you already have one.');
       await I.see('Continue');
     });
+
+    Then('I test gov notify client', async () => {
+      let response = await notifyClient.getNotifications();
+      console.log(response);
+      let a = 'a';
+      let b = 'b';
+      assert(a == b);
+    });
   }
 };
