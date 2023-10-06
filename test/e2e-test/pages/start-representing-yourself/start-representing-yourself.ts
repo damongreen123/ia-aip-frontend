@@ -127,7 +127,7 @@ module.exports = {
       console.log(response);
       let a = 'a';
       let b = 'b';
-      assert(a == b);
+      assert(a === b);
     });
   }
 };
