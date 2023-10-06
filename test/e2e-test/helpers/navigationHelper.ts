@@ -22,7 +22,8 @@ class NavigationHelper extends Helper {
       assert.ok(helper.page.url().includes('cases'));
       await helper.waitForText('Sign out', 30);
       await helper.see('Sign out');
-      await helper.waitForInvisible('div.spinner');
+      await helper.waitForInvisible('div.spinner', 60);
+      await helper.see('Your cases');
       return true;
     } catch (err) {
       return false;
