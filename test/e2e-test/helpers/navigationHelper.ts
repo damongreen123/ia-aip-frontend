@@ -26,6 +26,8 @@ class NavigationHelper extends Helper {
       await helper.see('Your cases');
       return true;
     } catch (err) {
+      console.log('login unsuccessful');
+      console.log(err);
       return false;
     }
   }

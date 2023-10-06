@@ -9,7 +9,6 @@ class FailedTest extends Helper {
   }
   async _afterStep(step) {
     const helper = this.helpers['Puppeteer'];
-    await output.log('Checking flakiness');
     const unwantedStrings = ['idam', 'start-appeal', 'eligibility'];
     const url = await helper.page.url();
     const isNotContainingUnwantedString = string => !url.includes(string);
@@ -17,9 +16,7 @@ class FailedTest extends Helper {
     try {
       assert.ok(unwantedStrings.every(isNotContainingUnwantedString));
       for (let i = 0; i < 10; i++) {
-        await output.log('waiting for sign out text');
         await helper.waitForText('Sign out', 5);
-        await output.log('Can I see flakey error page?');
         const content = await helper.page.content()
         assert.ok(content.includes('Sorry, there is a problem with this service'))
         await output.log('Saw flakey problem with service');
@@ -28,8 +25,7 @@ class FailedTest extends Helper {
         retry = true;
       }
     } catch (err) {
-      await output.log(err);
-      await output.log('Found no flakiness');
+      // do nothing
       if (retry === true) {
         step.run()
       }

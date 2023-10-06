@@ -22,7 +22,7 @@ if (testUrl.includes('localhost')) {
 module.exports = {
   legalRepCreateCase(I) {
     When(/^I create a new case and submit it$/, async () => {
-      await I.retry(3).amOnPage(exuiBaseUrl + '/cases/case-filter');
+      await I.retry(3).amOnPage(exuiBaseUrl + 'cases/case-filter');
       await I.waitForElement('#cc-jurisdiction option[value="IA"]', 60);
       await I.selectOption('#cc-jurisdiction', 'Immigration & Asylum');
       await I.selectOption('#cc-case-type', 'Appeal* master');
