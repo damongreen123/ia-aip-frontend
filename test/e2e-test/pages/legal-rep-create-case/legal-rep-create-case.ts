@@ -27,7 +27,6 @@ module.exports = {
       await I.selectOption('#cc-jurisdiction', 'Immigration & Asylum');
       await I.selectOption('#cc-case-type', 'Appeal* master');
       await I.selectOption('#cc-event', 'Start your appeal');
-      }
       await I.click('Start');
       await I.waitForText('Tell us about your client', 60);
       await I.click('#checklist_checklist2-isNotDetained');
