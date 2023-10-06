@@ -109,11 +109,17 @@ module.exports = {
     });
 
     When(/^I stop representing the client$/, async () => {
-      await retryTo(async (tryNum) => {
-        await I.selectOption('#next-step', 'Stop representing a client');
-        await I.click('Go');
-        await I.waitForText('Once you\'ve submitted this request', 60);
-      }, 3);
+      for (let i = 0; i < 3; i++) {
+        try {
+          await I.selectOption('#next-step', 'Stop representing a client');
+          await I.click('Go');
+          await I.waitForText('Once you\'ve submitted this request', 60);
+          await I.see('Once you\'ve submitted this request');
+          break;
+        } catch (err) {
+          // do nothing
+        }
+      }
       await I.click('Continue');
       await I.waitForText('Submit', 60);
       await I.click('Submit');
