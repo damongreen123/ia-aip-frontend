@@ -15,6 +15,19 @@ class NavigationHelper extends Helper {
       return false;
     }
   }
+
+  async checkIfExUiLogInIsSuccessful() {
+    const helper = this.helpers['Puppeteer']; // Or change to another Helper
+    try {
+      assert.ok(helper.page.url().includes('cases'));
+      await helper.waitForText('Sign out', 30);
+      await helper.see('Sign out');
+      await helper.waitForInvisible('div.spinner');
+      return true;
+    } catch (err) {
+      return false;
+    }
+  }
 }
 
 module.exports = NavigationHelper;
