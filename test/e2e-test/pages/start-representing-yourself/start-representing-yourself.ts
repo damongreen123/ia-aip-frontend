@@ -8,6 +8,7 @@ let NotifyClient = require('notifications-node-client').NotifyClient;
 const govNotifyApiKey = config.get('govNotify.accessKey');
 let notifyClient = new NotifyClient(govNotifyApiKey);
 let caseReferenceNumber;
+let appealRef;
 let accessCode;
 let firstName;
 let lastName;
@@ -78,6 +79,7 @@ module.exports = {
       let name = emailBody.split('Appellant name:')[1].split('The online service:')[0].trim();
       firstName = name.split(' ')[0];
       lastName = name.split(' ')[1];
+      appealRef = emailBody.split('HMCTS reference:')[1].split('Appellant name:')[0].trim();
     });
 
     Then('I see enter case number page content', async () => {
@@ -119,6 +121,15 @@ module.exports = {
       await I.see('Access your case');
       await I.see('You can now access your case. You will first need to create an account or sign in if you already have one.');
       await I.see('Continue');
+    });
+
+    Then('I should see the appeal overview page with the legal rep case details', async () => {
+      await I.waitInUrl(paths.common.overview, 10);
+      await I.seeInCurrentUrl(paths.common.overview);
+      await I.see(firstName + ' ' + lastName);
+      await I.see(appealRef);
+      await I.see('Nothing to do next');
+      await I.see('Your appeal details have been sent to the Tribunal.');
     });
   }
 };

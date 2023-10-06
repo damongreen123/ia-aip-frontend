@@ -18,3 +18,5 @@ Scenario: Testing ExUI login flakiness fix
   Then I see the confirm case details page with the correct information
   When I click "Continue" button
   Then I am on the self register page
+  When I enter creds and click sign in
+  Then I should see the appeal overview page with the legal rep case details
