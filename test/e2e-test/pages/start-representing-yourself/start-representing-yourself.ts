@@ -81,7 +81,7 @@ module.exports = {
     });
 
     Then('I see enter case number page content', async () => {
-      await I.waitForElement('Enter your online case reference number', 60);
+      await I.waitForText('Enter your online case reference number', 60);
       await I.seeInCurrentUrl('start-representing-yourself/enter-case-number');
       await I.see('Enter your online case reference number');
       await I.see('Enter the online case reference number from the email, text message or letter we sent you.');
@@ -96,7 +96,7 @@ module.exports = {
     });
 
     Then('I see enter security code page content', async () => {
-      await I.waitForElement('Enter your security code', 60);
+      await I.waitForText('Enter your security code', 60);
       await I.seeInCurrentUrl('start-representing-yourself/enter-security-code');
       await I.see('Enter your security code');
       await I.see('Enter the security code from the email, text message or letter we sent you.');
