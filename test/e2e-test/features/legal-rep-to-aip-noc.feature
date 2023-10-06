@@ -2,14 +2,21 @@
 Feature: Legal Rep to Appellant in person Notice of change
 
 Scenario: NoC Happy path LR to AiP
-   Given I visit the start-representing-yourself page
-   When I click start now
-
-#   valid AAT/preview-AAT reference and access code until 04 Nov 2025
-   And I enter the case reference number `1678843203065810`
-   And I enter the access code `2LMCH8YDLPY4`
-
-   Then I should see the name `José González` and the case number `1678-8432-0306-5810`
-   And I see the confirm case details page
-#   When I complete the case details page
-#   Then I am on the self register page
+   Given I log in as a Legal Rep
+   And I create a new case and submit it
+   And I stop representing the client
+   And I get the NoC required data from the sent notification
+   When I visit the start-representing-yourself page
+   Then I see the start-representing-yourself page content
+   When I click "Start now" button
+   Then I see enter case number page content
+   When I enter the case reference number from notification
+   And I click "Continue" button
+   Then I see enter security code page content
+   When I enter the security code from notification
+   And I click "Continue" button
+   Then I see the confirm case details page with the correct information
+   When I click "Continue" button
+   Then I am on the self register page
+   When I enter creds and click sign in
+   Then I should see the appeal overview page with the legal rep case details
