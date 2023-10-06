@@ -86,7 +86,7 @@ module.exports = {
       await I.see('Enter your online case reference number');
       await I.see('Enter the online case reference number from the email, text message or letter we sent you.');
       await I.see('Online case reference number');
-      await I.see('For example, 1234-1234-1234-1234 ');
+      await I.see('For example, 1234-1234-1234-1234');
       await I.see('Continue');
     });
 
