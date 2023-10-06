@@ -122,7 +122,7 @@ module.exports = {
     });
 
     Then('I test gov notify client', async () => {
-      console.log(config.get(features.askForMoreTime));
+      console.log(config.get('features.askForMoreTime'));
       let response = await notifyClient.getNotifications();
       console.log(response);
       let a = 'a';
