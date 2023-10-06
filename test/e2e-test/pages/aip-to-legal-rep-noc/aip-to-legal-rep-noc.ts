@@ -30,8 +30,8 @@ module.exports = {
     });
 
     When(/^I log in as a Legal Rep$/, async () => {
+      await I.amOnPage(exuiBaseUrl);
       for (let i = 0; i < 5; i++) {
-        await I.amOnPage(exuiBaseUrl);
         let success = await I.checkIfExUiLogInIsSuccessful();
         if (success === true) {
           break;
