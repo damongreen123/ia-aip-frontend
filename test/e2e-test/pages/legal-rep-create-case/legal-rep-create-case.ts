@@ -118,7 +118,7 @@ module.exports = {
       await I.click('Continue');
       await I.waitForText('Submit', 60);
       await I.click('Submit');
-      await I.waitForText('Case list', 60);
+      await I.waitForText('Hide Filter', 60);
     });
   }
 };
