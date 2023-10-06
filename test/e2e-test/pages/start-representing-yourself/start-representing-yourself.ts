@@ -68,7 +68,7 @@ module.exports = {
 
     When('I get the NoC required data from the sent notification', async () => {
       let response = await notifyClient.getNotifications();
-      let data = response.data.notifications.filter(item => item.template.id === 'abb94a28-62e3-4aea-9dba-9bdea1f6c9ec');
+      let data = await response.data.notifications.filter(item => item.template.id === 'abb94a28-62e3-4aea-9dba-9bdea1f6c9ec');
       let emailBody = data[0].body;
       let usefulInfo = emailBody.split('Enter your online case reference number: ')[1]
                                 .split('The security code is valid')[0]
@@ -119,15 +119,6 @@ module.exports = {
       await I.see('Access your case');
       await I.see('You can now access your case. You will first need to create an account or sign in if you already have one.');
       await I.see('Continue');
-    });
-
-    Then('I test gov notify client', async () => {
-      console.log(config.get('features.askForMoreTime'));
-      let response = await notifyClient.getNotifications();
-      console.log(response);
-      let a = 'a';
-      let b = 'b';
-      assert(a === b);
     });
   }
 };

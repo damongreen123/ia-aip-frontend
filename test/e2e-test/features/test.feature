@@ -2,7 +2,6 @@
 Feature: Testing Test
 
 Scenario: Testing ExUI login flakiness fix
-  Then I test gov notify client
   When I log in as a Legal Rep
   And I create a new case and submit it
   And I stop representing the client
