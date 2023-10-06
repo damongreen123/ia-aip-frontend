@@ -27,26 +27,6 @@ module.exports = {
       await I.see('Start now');
     });
 
-    When(/^I enter the case reference number `?([^\s`]+)`?$/, async (caseReferenceNumber) => {
-      await I.waitForElement('#caseReferenceNumber', 60);
-      await I.seeInCurrentUrl('start-representing-yourself/enter-case-number');
-      await I.fillField('#caseReferenceNumber', caseReferenceNumber);
-      await I.click('Continue');
-    });
-
-    When(/^I enter the access code `?([^\s`]+)`?$/, async (accessCode) => {
-      await I.waitForElement('#accessCode', 60);
-      await I.seeInCurrentUrl('start-representing-yourself/enter-security-code');
-      await I.fillField('#accessCode', accessCode);
-      await I.click('Continue');
-    });
-
-    Then(/^I complete the case details page$/, async () => {
-      await I.see('These are your case details. If these are not the correct details, you should contact the Tribunal.');
-      await I.seeInCurrentUrl('start-representing-yourself/confirm-case-details');
-      await I.click('Continue');
-    });
-
     Then(/^I see the confirm case details page/, async () => {
       await I.seeInCurrentUrl('start-representing-yourself/confirm-case-details');
       await I.see('These are your case details. If these are not the correct details, you should contact the Tribunal.');
@@ -58,13 +38,6 @@ module.exports = {
       await I.waitForText('Sign in to your account.', 30);
       await I.click('Sign in to your account');
       await I.waitForElement('#username', 30);
-    });
-
-    When(/^I should see the name `([^"]*)` and the case number `?([^\s`]+)`?$/, async (name, caseNumber) => {
-      await I.waitForText('Case details', 60);
-      await I.seeInCurrentUrl('start-representing-yourself/confirm-case-details');
-      await I.see(name);
-      await I.see(caseNumber);
     });
 
     When('I get the NoC required data from the sent notification', async () => {
