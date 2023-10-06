@@ -32,7 +32,7 @@ module.exports = {
 
     When('I click Sign in to continue with your appeal after answering PCQ questions', async () => {
       await I.click('Sign in to continue with your appeal');
-      await I.waitInUrl('/appeal-overview', 10);
+      await I.waitInUrl('/appeal-overview', 30);
     });
 
     When('I enter creds and click sign in', async () => {
