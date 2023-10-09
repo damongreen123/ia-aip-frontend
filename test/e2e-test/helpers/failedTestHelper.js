@@ -16,7 +16,7 @@ class FailedTest extends Helper {
     try {
       assert.ok(unwantedStrings.every(isNotContainingUnwantedString));
       for (let i = 0; i < 10; i++) {
-        await helper.waitForText('Sign out', 5);
+        await helper.waitForText('Sign out', 20);
         const content = await helper.page.content()
         assert.ok(content.includes('Sorry, there is a problem with this service'))
         await output.log('Saw flakey problem with service');
