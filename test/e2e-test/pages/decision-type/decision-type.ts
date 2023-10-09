@@ -11,7 +11,7 @@ module.exports = {
     });
 
     When(/^I click on the decision-type link$/, async () => {
-      await I.click('Decision with or without a hearing');
+      await I.click('#typeOfDecisionLink');
     });
 
     When(/^I click on Decision with hearing as my type of decision and click Save and continue$/, async () => {
