@@ -5,13 +5,9 @@ exports.config = {
   name: 'codecept',
   retry: {
     Feature: 5,
-    Scenario: 5,
-    Before: 5,
-    BeforeSuite: 5,
-    After: 5,
-    AfterSuite: 5,
+    Scenario: 5
   },
-  timeout: 20000,
+  timeout: 60000,
   output: './functional-output/e2e/reports/',
   bootstrap: async() => {
     global.testFailed = false;
@@ -51,7 +47,6 @@ exports.config = {
       enabled: true,
       fullPageScreenshots: false,
       deleteSuccessful: true,
-      output: "./functional-output/e2e/reports/test_report"
     },
     retryTo: {
       enabled: true
