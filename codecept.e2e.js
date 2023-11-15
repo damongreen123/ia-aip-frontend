@@ -3,9 +3,7 @@ const process = require("process");
 
 exports.config = {
   name: 'codecept',
-  retry: {
-    Scenario: 3
-  },
+  retry: 3,
 
   output: './functional-output/e2e/reports/',
   bootstrap: async() => {
