@@ -4,8 +4,7 @@ const process = require("process");
 exports.config = {
   name: 'codecept',
   retry: {
-    Feature: 1,
-    Scenario: 3,
+    Scenario: 3
   },
 
   output: './functional-output/e2e/reports/',
