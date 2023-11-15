@@ -21,7 +21,7 @@ module.exports = {
       await I.see('Enter card details', 'h1');
       await I.fillField('#card-no','4444333322221111');
       await I.fillField('#expiry-month','10');
-      await I.fillField('#expiry-year','23');
+      await I.fillField('#expiry-year','30');
       await I.fillField('#cardholder-name','Successful payment');
       await I.fillField('#cvc','123');
       await I.fillField('#address-line-1','123 Bond Street');

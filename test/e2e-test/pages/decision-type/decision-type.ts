@@ -5,6 +5,10 @@ const testUrl = config.get('testUrl');
 
 module.exports = {
   decisionType(I) {
+    When('I go to appeal overview page', () => {
+      I.retry(3).amOnPage(testUrl + '/appeal-overview');
+    });
+
     Given('I should be taken to the decision type page', async () => {
       await I.waitInUrl(paths.appealStarted.decisionType,10);
       await I.seeInCurrentUrl(paths.appealStarted.decisionType);
