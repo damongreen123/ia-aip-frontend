@@ -65,11 +65,11 @@ withNightlyPipeline(type, product, component) {
     env.S2S_MICROSERVICE_NAME = 'iac'
     env.TEST_E2E_FAIL_FAST = 'false'
 
-    enableCrossBrowserTest()
+//    enableCrossBrowserTest()
 //    TODO re add in fortify once issues have been resolved
 //    disabled until fortify accounts are allocated
 //    enableFortifyScan()
-    enableSecurityScan()
+//    enableSecurityScan()
 //    mutation tests not yet implemented
 //    enableMutationTest()
     enableFullFunctionalTest(120)

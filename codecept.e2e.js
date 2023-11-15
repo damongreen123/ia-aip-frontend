@@ -8,7 +8,7 @@ exports.config = {
     Scenario: 3,
   }
 
-  output: './functional-output/e2e/reports/',
+//  output: './functional-output/e2e/reports/',
   bootstrap: async() => {
     global.testFailed = false;
   },
