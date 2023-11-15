@@ -10,8 +10,8 @@ exports.config = {
     BeforeSuite: 5,
     After: 5,
     AfterSuite: 5,
-  }
-  timeout: 20000
+  },
+  timeout: 20000,
   output: './functional-output/e2e/reports/',
   bootstrap: async() => {
     global.testFailed = false;
