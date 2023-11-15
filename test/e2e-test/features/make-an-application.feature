@@ -1,4 +1,3 @@
-@nightly-test
 Feature: Make an application
   Background:
     Given I am on home page
@@ -53,7 +52,7 @@ Feature: Make an application
     And I click "Save and continue" button
     Then I should be taken to the pcq-questions page
     When I click "I don't want to answer these questions" button
-  And I wait for 5 seconds
+    And I wait for 5 seconds
     And I go to appeal overview page
     Then I should see the appeal overview page
     And I click continue

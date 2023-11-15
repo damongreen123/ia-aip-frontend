@@ -1,4 +1,4 @@
-@aip-to-lr-noc @nightly-test @failing-test
+@aip-to-lr-noc @nightly-test
 Feature: Appellant in person to Legal Rep Notice of change
 
 Scenario: Complete NoC Happy path AiP to LR
@@ -54,7 +54,7 @@ Scenario: Complete NoC Happy path AiP to LR
    And I click "Save and continue" button
    Then I should be taken to the pcq-questions page
    When I click "I don't want to answer these questions" button
-  And I wait for 5 seconds
+   And I wait for 5 seconds
    And I go to appeal overview page
    Then I should see the appeal overview page
    When I click continue
