@@ -4,9 +4,14 @@ const process = require("process");
 exports.config = {
   name: 'codecept',
   retry: {
-    Scenario: 10,
-  },
-
+    Feature: 5,
+    Scenario: 5,
+    Before: 5,
+    BeforeSuite: 5,
+    After: 5,
+    AfterSuite: 5,
+  }
+  timeout: 20000
   output: './functional-output/e2e/reports/',
   bootstrap: async() => {
     global.testFailed = false;
@@ -24,7 +29,8 @@ exports.config = {
       show: config.get('showTests'),
       chrome: {
         ignoreHTTPSErrors: true
-      }
+      },
+      restart: true
     },
     customHelper: {
       require: './test/e2e-test/helpers/navigationHelper.ts', // Import the custom helper file
@@ -43,8 +49,9 @@ exports.config = {
     },
     stepByStepReport: {
       enabled: true,
-      fullPageScreenshots: true,
-      deleteSuccessful: false
+      fullPageScreenshots: false,
+      deleteSuccessful: true,
+      output: "./functional-output/e2e/reports/test_report"
     },
     retryTo: {
       enabled: true
