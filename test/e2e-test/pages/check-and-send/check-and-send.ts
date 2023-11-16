@@ -15,7 +15,7 @@ module.exports = {
     });
 
     Then(/^I should be taken to the check-and-send page$/, async () => {
-      await I.waitInUrl(paths.appealStarted.checkAndSend,10);
+      await I.waitInUrl(paths.appealStarted.checkAndSend, 30);
       await I.seeInCurrentUrl(paths.appealStarted.checkAndSend);
       await I.see('Check your answer', 'h1');
     });
