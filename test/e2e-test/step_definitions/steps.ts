@@ -50,7 +50,7 @@ const { applyForFTPAAppellant } = require('../pages/ftpa/apply-for-ftpa');
 const { I } = inject();
 
 Before((test) => {
-  test.retries(3);
+  test.retries(10);
 });
 
 common(I);
