@@ -1,3 +1,4 @@
+@nightly-test
 Feature: Make an application
   Background:
     Given I am on home page
@@ -68,7 +69,6 @@ Feature: Make an application
     Then I am on the appeal details sent with payment page
     And I see "Your appeal details have been sent" in title
 
-  @nightly-test
   Scenario: Ask to withdraw the appeal
     And I click on the See your appeal progress link
     Then I should see the appeal overview page
@@ -86,7 +86,6 @@ Feature: Make an application
     When I click "Your request" link
     Then I should see the Ask to withdraw the appeal request page
 
-  @nightly-test
   Scenario: Ask to change some of your details
     And I click on the See your appeal progress link
     Then I should see the appeal overview page
@@ -104,7 +103,6 @@ Feature: Make an application
     When I click "Your request" link
     Then I should see the Ask to change some of your details request page
 
-  @nightly-test
   Scenario: Ask to link or unlink with another appeal
     And I click on the See your appeal progress link
     Then I should see the appeal overview page
@@ -122,7 +120,6 @@ Feature: Make an application
     When I click "Your request" link
     Then I should see the Ask to link or unlink this appeal request page
 
-  @nightly-test
   Scenario: Ask for a judge to review a decision
     And I click on the See your appeal progress link
     Then I should see the appeal overview page
@@ -140,7 +137,6 @@ Feature: Make an application
     When I click "Your request" link
     Then I should see the Ask for a judge to review a decision request page
 
-  @nightly-test
   Scenario: Ask for something else
     And I click on the See your appeal progress link
     Then I should see the appeal overview page
@@ -158,7 +154,6 @@ Feature: Make an application
     When I click "Your request" link
     Then I should see the Ask for something else request page
 
-  @nightly-test
   Scenario: Ask for the appeal to be reinstated
     And I grab the Appeal Reference
     Then I sign in as a Case Officer and End the appeal
