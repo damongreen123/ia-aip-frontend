@@ -26,6 +26,7 @@ if (testUrl.includes('localhost')) {
   exUiUrl = 'https://manage-case.demo.platform.hmcts.net/';
 }
 let appealReference;
+let appealReference2;
 const docStoreUrl = config.get('documentManagement.apiUrl');
 
 const authenticationService = new AuthenticationService();
