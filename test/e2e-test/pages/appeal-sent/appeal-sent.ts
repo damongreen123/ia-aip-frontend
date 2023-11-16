@@ -5,10 +5,12 @@ import { dayMonthYearFormat } from '../../../../app/utils/date-utils';
 module.exports = {
   appealSent(I) {
     Then('I am on the appeal details sent page', async () => {
+      await I.waitInUrl(paths.appealSubmitted.confirmation, 15);
       I.seeInCurrentUrl(paths.appealSubmitted.confirmation);
     });
 
     Then('I am on the appeal details submitted page', async () => {
+      await I.waitInUrl(paths.pendingPayment.confirmation, 15);
       await I.seeInCurrentUrl(paths.pendingPayment.confirmation);
       await I.see('You still have to Pay for your appeal.');
     });
@@ -35,6 +37,7 @@ module.exports = {
     });
 
     Then('I am on the appeal details sent with payment page', async () => {
+      await I.waitInUrl(paths.common.confirmationPayment, 15);
       await I.seeInCurrentUrl(paths.common.confirmationPayment);
       I.see('Your appeal details have been sent');
       I.see('A Tribunal Caseworker will ask the Home Office to send any documents it has about your case to the Tribunal');
