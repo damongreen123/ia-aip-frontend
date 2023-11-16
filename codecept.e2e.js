@@ -3,11 +3,7 @@ const process = require("process");
 
 exports.config = {
   name: 'codecept',
-  retry: {
-    Feature: 5,
-    Scenario: 5
-  },
-  timeout: 60000,
+  timeout: 600,
   output: './functional-output/e2e/reports/',
   bootstrap: async() => {
     global.testFailed = false;
