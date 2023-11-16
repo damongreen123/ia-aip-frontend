@@ -238,6 +238,11 @@ module.exports = {
       await I.waitForText('Online case reference number:', 30);
       let ref = await I.grabTextFrom('//li');
       appealReference = ref.split('Online case reference number: ')[1];
+      console.log('PLOOP');
+      console.log(appealReference);
+      appealReference2 = ref.split('Online case reference number: ')[1].split('-').join('');
+      console.log('PLOOP2');
+      console.log(appealReference2);
       caseUrl = exUiUrl + 'cases/case-details/' + appealReference.split('-').join('');
     });
 

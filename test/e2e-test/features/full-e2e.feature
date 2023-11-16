@@ -1,4 +1,4 @@
-@nightly-test
+@nightly-test @testy-test
 Feature: Business rules
 In order to achieve my goals
 As a person
